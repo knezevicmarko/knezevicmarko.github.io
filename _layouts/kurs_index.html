@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<div class="w3-container w3-center w3-margin">
+  {% for kurs in site.collections %}
+  {% if kurs.label == page.collection %}
+    <img src="{{ site.baseurl }}/assets/img/kursevi/{{ kurs.image }}" style="width: 64px;" class="w3-left">
+    <h1 class="w3-kaushan w3-text-shadow">{{ kurs.title }}</h1>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<div class="w3-accordion w3-card-4 w3-margin">
+  <button onclick="toggleAcc('oContent')" class="w3-btn-block w3-left-align">
+    O kursu
+  </button>
+  <div class="w3-accordion-content w3-padding" id="oContent">
+    {{ content }}
+  </div>
+</div>
+
+
+{% assign mcreate = "" %}
+{% for pg in site[page.collection] %}
+{% if pg.main_category and pg.active %}
+  {% assign mcreate = mcreate | append: '|' | append: pg.main_category %}
+{% endif %}
+{% endfor %}
+{% assign mainCat = mcreate | remove_first: '|' | split: '|' | uniq %}
+{% for category in mainCat %}
+<div class="w3-accordion w3-card-4 w3-margin">
+  <button onclick="toggleAcc('{{ category }}')" class="w3-btn-block w3-left-align">
+    {{ category }}
+  </button>
+  <div class="w3-accordion-content w3-padding" id="{{ category }}">
+    <ul class="w3-ul w3-card-4">
+    {% for pg in site[page.collection] %}
+      {% if pg.main_category == category and pg.active %}
+        <li class="w3-padding-16">
+          <a href="{{ pg.url }}">
+          {% if pg.image %}
+            <img src="{{ site.baseurl }}/assets/img/{{ pg.image }}" class="w3-left" style="width: 60px;">
+          {% else %}
+            <img src="{{ site.baseurl }}/assets/img/lekcija.png" class="w3-left" style="width: 60px;">
+          {% endif %}
+          {% if pg.sub_category %}
+            <span class="w3-xlarge">{{ pg.sub_category }}</span><br>
+          {% else %}
+            <span class="w3-xlarge"> </span><br>
+          {% endif %}
+            <span> {{ pg.title }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endfor %}
+
+<script>
+function toggleAcc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>

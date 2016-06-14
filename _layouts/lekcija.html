@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<div class="w3-row">
+  <div class="w3-third w3-padding-64 w3-hide-small w3-hide-medium">
+    <ul class="w3-ul w3-card-4 w3-light-grey">
+      <li><strong>{{ page.main_category }}{% if page.sub_category %} / {{ page.sub_category }}{% endif %}</strong></li>
+      {% for pg in site[page.collection] %}
+       {% if page.sub_category %}
+        {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+          <li class="w3-padding-tiny"><a class="w3-btn-block {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a></li>
+        {% endif %}
+       {% else %}
+        {% if pg.main_category == page.main_category and pg.active %}
+          <li class="w3-padding-tiny"><a class="w3-btn-block {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a></li>
+        {% endif %}
+       {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="w3-rest w3-container w3-content w3-center w3-padding-64" style="max-width: 800px;">
+    <h2 class="w3-wide">
+    {% if page.image %}
+      <img src="{{ site.baseurl }}/assets/img/{{ page.image }}" style="width: 64px;">
+    {% else %}
+      <img src="{{ site.baseurl }}/assets/img/lekcija.png" style="width: 64px;">
+    {% endif %}
+    {{ page.title }}
+    </h2>
+    <div class="w3-dropdown-hover w3-hide-large">
+      {% if page.sub_category %}
+        <button class="w3-btn w3-light-grey">{{ page.sub_category }} <i class="fa fa-caret-down"></i></button>
+      {% else %}
+        <button class="w3-btn w3-light-grey">{{ page.main_category }} <i class="fa fa-caret-down"></i></button>
+      {% endif %}
+      <div class="w3-dropdown-content w3-border">
+        {% for pg in site[page.collection] %}
+         {% if page.sub_category %}
+          {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+            <a class="w3-btn-block {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a>
+          {% endif %}
+         {% else %}
+          {% if pg.main_category == page.main_category and pg.active %}
+            <a class="w3-btn-block {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a>
+          {% endif %}
+         {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="w3-justify">
+      {{ content }}
+    </div>
+    {% assign count = 1 %}
+    <ul class="w3-pagination w3-border w3-round">
+    {% for pg in site[page.collection] %}
+     {% if page.sub_category %}
+      {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+        <li><a {% if page.url == pg.url %}class="w3-blue"{% endif %} href="{{ pg.url }}">{{ count }}</a></li>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+     {% else %}
+      {% if pg.main_category == page.main_category and pg.active %}
+        <li><a {% if page.url == pg.url %}class="w3-blue"{% endif %} href="{{ pg.url }}">{{ pg.title }}</a></li>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+     {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
+</div>

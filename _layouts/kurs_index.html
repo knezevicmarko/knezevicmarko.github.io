@@ -11,7 +11,7 @@ layout: default
 </div>
 
 <div class="w3-accordion w3-card-4 w3-margin">
-  <button onclick="toggleAcc('oContent')" class="w3-btn-block w3-left-align">
+  <button onclick="toggleAcc('oContent')" class="w3-btn-block w3-left-align w3-light-grey">
     O kursu
   </button>
   <div class="w3-accordion-content w3-padding" id="oContent">
@@ -28,12 +28,12 @@ layout: default
 {% endfor %}
 {% assign mainCat = mcreate | remove_first: '|' | split: '|' | uniq %}
 {% for category in mainCat %}
-<div class="w3-accordion w3-card-4 w3-margin">
-  <button onclick="toggleAcc('{{ category }}')" class="w3-btn-block w3-left-align">
+<div class="w3-accordion w3-card-4 w3-margin w3-light-grey">
+  <button onclick="toggleAcc('{{ category }}')" class="w3-btn-block w3-left-align w3-light-grey">
     {{ category }}
   </button>
   <div class="w3-accordion-content w3-padding" id="{{ category }}">
-    <ul class="w3-ul w3-card-4">
+    <ul class="w3-ul w3-card-4 w3-white">
     {% for pg in site[page.collection] %}
       {% if pg.main_category == category and pg.active %}
         <li class="w3-padding-16">

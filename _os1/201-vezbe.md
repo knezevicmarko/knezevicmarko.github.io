@@ -5,6 +5,7 @@ main_category: Materijali za vežbe
 sub_category: Linux
 image: linux.png
 active: true
+comment: true
 ---
 # 2. Distribucija
 

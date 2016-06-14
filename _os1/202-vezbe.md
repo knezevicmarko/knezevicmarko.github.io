@@ -5,6 +5,7 @@ main_category: Materijali za vežbe
 sub_category: Linux
 image: linux.png
 active: true
+comment: true
 ---
 
 Ovo je prva lekcija iz Linux dela.

@@ -25,12 +25,12 @@ collections:
   os1:
     title: Operativni sistemi 1
     output: true
-    image: os1.png
+    image: fa fa-code
     description:
       Uvod u operativne sisteme. Hardverski i softverski koncepti. Koncepti procesa. Asinhrono konkurentno izvođenje. Konkurentno programiranje. Zastoj i neodređeno odlaganje. Vremensko planiranje procesa. Organizacija realne memorije i upravljanje. Organizacija virtualne memorije. Upravljanje bitruelnom memorijom. Optimizacija performansi diska. Sistemi podataka i datoteka.
   os2:
     title: Operativni sistemi 2
     output: true
-    image: os2.png
+    image: fa fa-tasks
     description:
       Upravljanje ulazno/izlaznim uređajima i raspoređivanje diska. Fajl sistemi. Jednoprocesorsko raspoređivanje (scheduling). Višeprocesorsko raspoređivanje i raspođivanje u realnom vremenu. Distribuirani sistemi, klijent/serveri i klasteri. Grid računarstvo. Sigurnost i bezbednost računarskih sistema.

@@ -5,8 +5,11 @@ title: OS2
 ---
 
 **Predmetni nastavnik:** [doc. dr Miloš Ivanović](https://imi.pmf.kg.ac.rs/index.php?option=com_content&task=view&id=337&Itemid=77){:target="_blank"}
-**Saradnik:** [Marko Knežević]()
 
+**Saradnik:** [Marko Knežević]()
+&nbsp;
+
+&nbsp;
 
 **Nastavni plan**
 

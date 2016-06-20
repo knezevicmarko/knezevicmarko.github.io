@@ -9,8 +9,8 @@ layout: default
       {% if mod == 1 %}
       <div class="w3-row w3-row-padding" >
       {% endif %}
-        <div class="w3-col w3-padding l4">
-        <div class="w3-card-4 w3-padding w3-display-container" style="min-height: 470px;">
+        <div class="w3-col l4">
+        <div class="w3-card-4 w3-display-container" style="min-height: 400px;">
           <p> {{ kurs_hash }}</p>
           <!--
           <div class="ribbon"><a class="w3-text-color-white" href="#">{{ post.categories[0] }}</a></div>
@@ -19,19 +19,22 @@ layout: default
             <!--
             <p class="w3-kaushan">{{ post.date | date: "%d.%m.%Y."}}</p>
           -->
-            <img class="w3-left w3-margin-right" alt="" src="{{ site.baseurl }}/assets/img/kursevi/{{ kurs.image }}" style="width: 64px;">
-            <h3 class="w3-kaushan">{{ kurs.title }}</h3>
+            <div class="w3-margin-top w3-kaushan w3-xxlarge">
+              <i class="{{ kurs.image }}"></i> {{ kurs.title }}
+            </div>
           </header>
           <div class="w3-container">
             <p class="w3-raleway w3-justify">{{ kurs.description }}</p>
-            <!-- 
+            <!--
             {% for tag in post.tags %}
             <a href="#" class="w3-tag w3-round w3-white w3-border w3-border-black w3-padding-small"> {{ tag }}</a>
             {% endfor %}
           -->
           </div>
           <br>
-          <a href="{{ kurs.label }}" class="w3-round w3-btn w3-display-bottomright w3-margin w3-black">Više...</a>
+          <div class="w3-container w3-display-bottomright w3-padding">
+            <a href="{{ kurs.label }}" class="w3-round w3-btn w3-black">Detaljnije</a>
+          </div>
         </div>
       </div>
       {% if mod == 0 %}

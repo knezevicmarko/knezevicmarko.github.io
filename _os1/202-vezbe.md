@@ -28,3 +28,10 @@ Device     Boot     Start       End   Sectors   Size Id Type
 
 Partition table entries are not in disk order.
 {% endhighlight %}
+
+{: .w3-table .w3-bordered .w3-striped .w3-card-4 .w3-margin}
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |

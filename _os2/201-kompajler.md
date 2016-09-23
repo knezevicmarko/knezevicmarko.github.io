@@ -33,3 +33,75 @@ Za bilo koji ulazni fajl, sufiks imena fajla (ekstenzija fajla) odriđuje koja v
 | ime_fajla.o | Objektni fajl. Kreira se tako sto se ekstenzije .c, .i, .s zamene sa .o |
 
 Na UNIX/Linux sistemima izvršni ili binarni fajl ne sadrži ekstenziju, dok na Windows sistemima ekstenzija može biti .exe, .com ili .dll.
+
+Slika koraka.
+
+# Primer 1.
+
+Fajl **primer1.c**.
+
+{% highlight c %}
+/* poziv ka standardnoj biblioteci stdio */
+#include <stdio.h>
+
+/* Ovo su makroi */
+#define BROJ 3
+#define STRING Ovo je poruka.
+
+/* Ovo je definicija neinicijalizovane globalne varijable */
+int x_global_uninit;
+
+/* Ovo je definicija inicijalizovane globalne varijable */
+int x_global_init = 1;
+
+/* Ovo je definicija neinicijalizovane globalne varijable
+kojoj moze da se pristupi samo u ovom C fajlu */
+static int y_global_uninit;
+
+/* Ovo je definicija inicijalizovane globalne varijable
+kojoj moze da se pristupi samo u ovom C fajlu */
+static int y_global_init = 2;
+
+/* Ovo je deklaracija globalne promenljive koja postoji
+negde drugde u programu */
+extern int z_global;
+
+/* Ovo je deklaracija funkcije koja postoji negde drugde u programu
+(moze se dodati "extern" kljucna rec ali nije neophodno) */
+int fn_a(int x, int y);
+
+/* Ovo je definicija funkcije kojoj moze da se pristupi,
+po imenu samo iz ovog C fajla */
+static int fn_b(int x)
+{
+  return x+1;
+}
+
+/* Ovo je definicija funkcije.
+Parametri funkcije se vode kao lokalne promenljive */
+int fn_c(int x_local)
+{
+  /* Ovo je definicija neinicijalizovane lokalne promenljive */
+  int y_local_uninit;
+
+  /* Ovo je definicija inicijalizovane lokalne promenljive */
+  int y_local_init = BROJ;
+
+  /* Linije koda kojima se referenciraju lokalne i globalne
+  promenljive i funkcije */
+  x_global_uninit = fn_a(x_local, x_global_init);
+  y_local_uninit = fn_a(x_local, y_local_init);
+  y_local_uninit += fn_b(z_global);
+  printf(STRING);
+  return (y_global_uninit + y_local_uninit);
+}
+{% endhighlight %}
+
+## 1. Preprocesuiranje
+
+Proces prevodjenja C programa počinje sa preprocesuiranjem direktiva (npr. #include i #define). Preprocesor je odvojen program koji se automatski poziva tokom prevođenja. Na primer, komanda {% highlight c %}#include <stdio.h>{% endhighlight %} na liniji 2 fajla primer1.c govori preprocesu da procita sadržaj sistemskog zaglavlja fajla stdio.h i da ga ubaci direktno u tekst programa. Rezultat je novi fajl (obicno sa ekstenzijom .i). U praksi, preprocesuiran fajl se ne pamti na disk osim ako nije uključena opcija -save-temps.
+Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl (obično makroima i zaglavljima uključenih fajlova). Da bi izvršio ovaj korak gcc kompajler izvršava interno komadnu {% highlight bash %} cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
+
+## 2. Kompajliranje
+
+U ovoj fazi kompajler prevodi fajl primer1.i u primer1.s. Fajl primer1.s sadrži asemblerski kod. Izvršenjem komande {% highlight bash %}gcc -S primer1.i{% endhighlight %} gcc kompajler prevodi fajla primer1.i u primer1.s. Opcija komandne linije -S govori kompajleru da preprocesuirani fajl konvertuje u kod asemblerskog jezika bez kreiranja objektnog fajla.

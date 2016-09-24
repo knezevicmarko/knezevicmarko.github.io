@@ -35,7 +35,7 @@ Za bilo koji ulazni fajl, sufiks imena fajla (ekstenzija fajla) odriđuje koja v
 
 Na UNIX/Linux sistemima izvršni ili binarni fajl ne sadrži ekstenziju, dok na Windows sistemima ekstenzija može biti .exe, .com ili .dll.
 
-![Slika koraka.](/assets/os2/koraci.jpg "Slika koraka."){:width="100%"}
+![Slika koraka.](/assets/os2/koraci.png "Slika koraka."){:width="100%"}
 
 # Primer 1.
 

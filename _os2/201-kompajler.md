@@ -3,7 +3,7 @@ layout: lekcija
 title: Prevođenje izvornog koda
 main_category: Materijali za vežbe
 sub_category: Prevođenje
-image: linux.png
+image: c.png
 active: true
 comment: true
 ---
@@ -13,16 +13,16 @@ C je razvio Dennis Ritchie u periodu od 1969. do 1973. godine u Bell Labs, za po
 
 # Kompajler
 
-Kompajler je kompjuterski program (ili skup programa) koji transformiše izvorni kod napisan u nekom programskom jeziku (izvorni jezik) u drugi programski jezik, najčešće u binarni format (objektni kod). Najčešći razlog ovakve konverzije je kreiranje izvršnog programa. Ime "kompajler" se najčešće koristi za programe koji prevode izvorni kod iz programskih jezika visokog nivoa (c, c++, ...) u jezike niskog nivoa (asembler, mašinski kod).
+Kompajler je kompjuterski program (ili skup programa) koji transformiše izvorni kod napisan u nekom programskom jeziku (izvorni jezik) u drugi programski jezik, najčešće u binarni format (objektni kod). Razlog ovakve konverzije je kreiranje izvršnog programa. Ime "kompajler" se koristi za programe koji prevode izvorni kod iz programskih jezika visokog nivoa (c, c++, ...) u jezike niskog nivoa (asembler, mašinski kod).
 
-Prevođenje programa napisanog u programskom jeziku C u izvrsni kod se izvodi u 4 koraka:
+Prevođenje programa napisanog u programskom jeziku C u izvršni kod se izvodi u 4 koraka:
 
 1. Preprocesuiranje,
 2. Prevođenje,
 3. Montaža,
 4. Povezivanje.
 
-Za bilo koji ulazni fajl, sufiks imena fajla (ekstenzija fajla) odriđuje koja vrsta prevođenja je urađena. Primer za GCC kompajler je dat u tabeli ispod.
+Za bilo koji ulazni fajl, sufiks imena fajla (ekstenzija fajla) određuje koja vrsta prevođenja je urađena. Primer za GCC kompajler je dat u tabeli ispod.
 
 {: .w3-table .w3-bordered .w3-striped .w3-card-4 .w3-margin}
 | Ekstenzija fajla   |      Opis      |
@@ -31,7 +31,7 @@ Za bilo koji ulazni fajl, sufiks imena fajla (ekstenzija fajla) odriđuje koja v
 | ime_fajla.i | C izvorni kod koji ne treba da bude preprosesuiran |
 | ime_fajla.h | C heder fajl (ne treba da bude kompajliran i povezan) |
 | ime_fajla.s | Kod asemblera. |
-| ime_fajla.o | Objektni fajl. Kreira se tako sto se ekstenzije .c, .i, .s zamene sa .o |
+| ime_fajla.o | Objektni fajl.|
 
 Na UNIX/Linux sistemima izvršni ili binarni fajl ne sadrži ekstenziju, dok na Windows sistemima ekstenzija može biti .exe, .com ili .dll.
 
@@ -97,7 +97,7 @@ int fn_c(int x_local)
 ## 1. Preprocesuiranje
 
 Proces prevodjenja C programa počinje sa preprocesuiranjem direktiva (npr. #include i #define). Preprocesor je odvojen program koji se automatski poziva tokom prevođenja. Na primer, komanda {% highlight c %}#define BROJ 3{% endhighlight %} na liniji 2 fajla primer1.c govori preprocesu da svako pojavljivanje makroa BROJ zameni sa brojem 3 (vrednost makroa). Rezultat je novi fajl (obicno sa ekstenzijom .i). U praksi, preprocesuiran fajl se ne pamti na hdd osim ako nije uključena opcija -save-temps.
-Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl (obično makroima i zaglavljima uključenih fajlova). Da bi izvršio ovaj korak gcc kompajler izvršava interno komadnu {% highlight bash %} cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
+Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl. Da bi izvršio ovaj korak gcc kompajler interno pokreće komadnu {% highlight bash %} cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
 
 ## 2. Prevođenje
 
@@ -173,7 +173,7 @@ Linker u stvari omogućava odvojeno prevođenje. Izvršni fajl može da bude sas
 
 ![Linker](/assets/os2/linker.jpg "Linker"){:width="100%"}
 
-GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu Linux-u pozivanjem komande {% highlight bash %}ld -dynamic-linker /lib64/ld-linux-x86-64.so.2
+GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu 16.04 Linux-u pozivanjem komande {% highlight bash %}ld -dynamic-linker /lib64/ld-linux-x86-64.so.2
 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o
 /usr/lib/x86_64-linux-gnu/crtn.o primer1.o primer2.o
 /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o

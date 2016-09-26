@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: Prevođenje izvornog koda
+title: Prevođenje izvornog koda 1
 main_category: Materijali za vežbe
 sub_category: Prevođenje
 image: c.png

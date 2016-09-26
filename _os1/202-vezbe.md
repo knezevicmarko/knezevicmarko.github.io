@@ -4,8 +4,8 @@ title: Lekcija 02
 main_category: Materijali za vežbe
 sub_category: Linux
 image: linux.png
-active: true
-comment: true
+active: false
+comment: false
 ---
 
 Ovo je prva lekcija iz Linux dela.

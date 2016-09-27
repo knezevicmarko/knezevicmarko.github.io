@@ -25,8 +25,8 @@ Student može izaći na završni ispit ako ispunjavanjem predispitnih obaveza os
 
 *Kolokvijumi i testovi*
 
-1. Osnovne komande Linux shell-a, programiranje skriptova u bash jeziku (**18 poena**).
-2. Konkurentno programiranje. IPC objekti i konkurentno programiranje na Linux platformi (**18 poena**).
+1. Konkurentno programiranje. IPC objekti i konkurentno programiranje na Linux platformi (**18 poena**).
+2. Osnovne komande Linux shell-a, programiranje skriptova u bash jeziku (**18 poena**).
 3. Windows operatvni sistem: arhitektura, komponente, servisi. Windows 7 (**10 poena**).
 
 Na završnom ispitu student može osvojiti **50** poena, i to na sledeći način.

@@ -37,4 +37,4 @@ Partition table entries are not in disk order.
 | col 3 is | right-aligned |    $1 |
 
 
-Najznačajnija hardverska inovacija koja je omogućila multiprogramske sisteme je I/O (Input/Output) procesor (kontroleri, kanali). I/O procesor može da izvrši specijalizovani I/O program bez intervencije CPU-a. Zato CPU mora samo da definiše niz aktivnosti za I/O procesor. Nakon toga I/O procesor izvršava I/O instrukcije i prekida CPU samo kada je čitava sekvenca I/O instrukcija izvršena. Za posledicu ovakvog načina upravljanja I/O uređajima imamo rasterećenje CPU-a pri sporoj interakciji poslova sa I/O uređajima.
+Najznačajnija hardverska inovacija koja je omogućila multiprogramske sisteme je I/O (Input/Output) procesor (kontroleri, kanali). I/O procesor može da izvrši specijalizovani I/O program bez intervencije CPU-a. CPU mora samo da definiše niz aktivnosti za I/O procesor. Nakon toga I/O procesor izvršava I/O instrukcije i prekida CPU samo kada je čitava sekvenca I/O instrukcija izvršena. Za posledicu ovakvog načina upravljanja I/O uređajima imamo rasterećenje CPU-a pri sporoj interakciji poslova sa I/O uređajima.

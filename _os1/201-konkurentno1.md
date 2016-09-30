@@ -167,6 +167,7 @@ Kada proces dete izađe, a nije sačekan (wait()), najčešće se u **ps** listi
 # Blok kontrole procesa
 
 U operativnom sistemu svaki proces je pretstavljen blokom kontrole procesa (PCB) ili blok kontrole zadataka. PCB je struktura podataka jezgra operativnog sistema koja fizički predstavlja proces u memoriji računara. Sadrži mnoge informacije povezane sa specifičnim procesom od kojih su najznačajnije:
+
 * **Identifikator** - jedinstveni indetifikator procesa (pid),
 * **Stanje** - ako se proces trenutno izvršava on je u stanju izvršenja (može biti blokiran, na čekanju isl.)
 * **Prioritet** - nivo prioriteta relativno u odnosu na ostale procese
@@ -176,11 +177,13 @@ U operativnom sistemu svaki proces je pretstavljen blokom kontrole procesa (PCB)
 * **Statusne informacije I/O uređaja**: Uključuje I/O zahteve, I/O uređaje priključene procesu, listu fajlova koje proces koristi isl.
 * **Informacije naloga** - mogu da sadrže koliko je proces upotrebio procesorskog vremena, vremenska ograničenja i slično.
 
+![Blok kontrole procesa.](/assets/os1/bcp.jpg "Blok kontrole procesa.")
+
 ## Stanje procesa
 
 Svaki proces može biti u jednom od sledećih stanja:
 
-**Slika** stanja procesa.
+![Stanja procesa.](/assets/os1/pStanja.jpg "Stanja procesa.")
 
 * **New**: proces je kreiran.
 * **Running**: izvršavaju se instrukcije.

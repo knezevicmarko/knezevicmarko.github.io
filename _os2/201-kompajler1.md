@@ -97,7 +97,7 @@ int fn_c(int x_local)
 ## 1. Preprocesuiranje
 
 Proces prevodjenja C programa počinje sa preprocesuiranjem direktiva (npr. #include i #define). Preprocesor je odvojen program koji se automatski poziva tokom prevođenja. Na primer, komanda {% highlight c %}#define BROJ 3{% endhighlight %} na liniji 2 fajla primer1.c govori preprocesu da svako pojavljivanje makroa BROJ zameni sa brojem 3 (vrednost makroa). Rezultat je novi fajl (obicno sa ekstenzijom .i). U praksi, preprocesuiran fajl se ne pamti na hdd osim ako nije uključena opcija -save-temps.
-Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl. Da bi izvršio ovaj korak gcc kompajler interno pokreće komadnu {% highlight bash %} cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
+Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl. Da bi izvršio ovaj korak gcc kompajler interno pokreće komadnu {% highlight bash %}cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
 
 ## 2. Prevođenje
 
@@ -173,9 +173,4 @@ Linker u stvari omogućava odvojeno prevođenje. Izvršni fajl može da bude sas
 
 ![Linker](/assets/os2/linker.jpg "Linker"){:width="100%"}
 
-GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu 16.04 Linux-u pozivanjem komande {% highlight bash %}ld -dynamic-linker /lib64/ld-linux-x86-64.so.2
-/usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o
-/usr/lib/x86_64-linux-gnu/crtn.o primer1.o primer2.o
-/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o
--L /usr/lib/gcc/x86_64-linux-gnu/5/ -lgcc -lgcc_eh -lc -lgcc -lgcc_eh
-/usr/lib/gcc/x86_64-linux-gnu/5/crtend.o -o primer{% endhighlight %} se kreira izvršni fajl **primer** koji povezuje primer1.o i primer2.o.
+GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu 16.04 Linux-u pozivanjem komande {% highlight bash %}ld -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /usr/lib/x86_64-linux-gnu/crtn.o primer1.o primer2.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L /usr/lib/gcc/x86_64-linux-gnu/5/ -lgcc -lgcc_eh -lc -lgcc -lgcc_eh /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o -o primer{% endhighlight %} se kreira izvršni fajl **primer** koji povezuje primer1.o i primer2.o.

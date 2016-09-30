@@ -16,7 +16,7 @@ Računarski softver se može, na grubo, podeliti u dva tipa:
 
 Najbitniji sistemski program je operativni sistem, čiji je posao da kontroliše sve računarske resurse i obezbedi osnovu na kojoj se može razvijati aplikacioni softver. Operativni sistem se ponaša kao posrednik između korisnika računara i računarskog hardvera.
 
-![Apstraktni pogled na komponente računarskog sistema.](/assets/os1/apstraktni_pogled.jpg "Apstraktni pogled na komponente računarskog sistema."){:width="100%"}
+![Apstraktni pogled na komponente računarskog sistema.](/assets/os1/apstraktni_pogled.jpg "Apstraktni pogled na komponente računarskog sistema.")
 
 Računarski sistem se može podeliti na četri komponente: hardver, operativni sistem, aplikacioni program i koristnik.
 
@@ -28,13 +28,13 @@ Operativni sistem obavlja posao sličan državnoj upravi. Kao i državna uprava,
 
 Operativni sistem sakriva hardverske detalje od korisnika i obezbeđuje prikladan interfejs za korišćenje sistema. Ako ovako posmatramo operativni sistem onda je njegova funkcija da obezbedi korisniku "prihvatljiviji" oblik komunikacije sa hardverskim komponentama tj. da se ponaša kao proširenje hardvera (virtuelna mašina). Mesto operativnog sistema je prikazano na slici ispod.
 
-![Mesto operativnog sistema u računarskom sistemu.](/assets/os1/os_rs.jpg "Mesto operativnog sistema u računarskom sistemu."){:width="100%"}
+![Mesto operativnog sistema u računarskom sistemu.](/assets/os1/os_rs.jpg "Mesto operativnog sistema u računarskom sistemu.")
 
 ## Operativni sistem kao upravljač resursa
 
 Računarski sistem ima mnoge resurse. Moderan računar se sastoji od procesora, memorije, tajmera, diska, miša, mrežnog interfejsa, štampača i mnogih drugih uređaja. Ako posmatramo OS kao upravljač resursa, onda je njegova funkcija da obezbedi uređeno i kontrolisano dodeljivanje procesora, memorije i ulazno / izlaznih (I/O) uređaja između više programa koji se takmiče za njihovo korišćenje.
 
-![Resursi kojima upravlja operativni sistem.](/assets/os1/os_resursi.jpg "Resursi kojima upravlja operativni sistem."){:width="100%"}
+![Resursi kojima upravlja operativni sistem.](/assets/os1/os_resursi.jpg "Resursi kojima upravlja operativni sistem.")
 
 Deo operativnog sistema se nalazi u radnoj memoriji. Ovo je jezgro operativnog sistema. Ostatak glavne memorije sadrži korisničke programe i podatke. Dodeljivanje resorsa (glavne memorije) je kontrolisano od strane OS i hardvera za upravljanje memorijom u procesoru.
 
@@ -60,11 +60,11 @@ Sistemski pozivi se na grubo mogu podeliti u pet glavnih kategorija:
 
 Multiprogramski sistemi su se razvili iz potrebe da se optimizuje korišćenje procesorskog vremena.
 
-![Racionala multiprogramskog sistema.](/assets/os1/racionala.jpg "Racionala multiprogramskog sistema."){:width="100%"}
+![Racionala multiprogramskog sistema.](/assets/os1/racionala.jpg "Racionala multiprogramskog sistema.")
 
 Rani multiprogramski sistemi nisu obezbedili interakciju korisnika sa računarskim sistemom. **Vremenska podela procesora** je logična nadogradnja multiprogramskih sistema koja obezbeđuje interakciju sa korisnicima. Postoji više od jednog korisnika koji komunicira sa sistemom. Promena poseda CPU između korisnika je toliko brza da korisnik stiče utisak da samo on komunicira sa sistemom, ali u stvari on se deli između više korisnika. Svaki korisnik naizvmenično dobija kratak interval procesorskog vremena. Vremenska podela procesora je kompleksnija od multiprogramiranja zato što mora da obezbedi mehanizme za sinhronizaciju i komunikaciju između poslova različitih korisnika.
 
-![Vremenska podela procesora između više (interaktivnih) korisnika.](/assets/os1/podela.jpg "Vremenska podela procesora između više (interaktivnih) korisnika."){:width="100%"}
+![Vremenska podela procesora između više (interaktivnih) korisnika.](/assets/os1/podela.jpg "Vremenska podela procesora između više (interaktivnih) korisnika.")
 
 ## Proces
 
@@ -131,8 +131,7 @@ int main(void)
 		case 0:
 			printf(" DETE: Ovo je proces dete!\n");
 			printf(" DETE: Moj PID je %d\n", getpid());
-			printf(" DETE: PID mog roditelja je %d\n",
-        getppid());
+			printf(" DETE: PID mog roditelja je %d\n", getppid());
 			printf(" DETE: Unesi moj izlazni status: ");
 			scanf(" %d", &rv);
 			printf(" DETE: Ja zavrsavam!\n");
@@ -141,11 +140,9 @@ int main(void)
 			printf("RODITELJ: Ovo je proces roditelj!\n");
 			printf("RODITELJ: Moj PID je %d\n", getpid());
 			printf("RODITELJ: PID mog deteta je %d\n", pid);
-			printf("RODITELJ: Ja sada cekam da moje dete izadje
-        (exit())...\n");
+			printf("RODITELJ: Ja sada cekam da moje dete izadje (exit())...\n");
 			wait(&rv);
-			printf("RODITELJ: Dete je izaslo sa statusom %d\n",
-        WEXITSTATUS(rv));
+			printf("RODITELJ: Dete je izaslo sa statusom %d\n", WEXITSTATUS(rv));
 			printf("RODITELJ: Ja zavrsavam\n");
 	}
 	return 0;

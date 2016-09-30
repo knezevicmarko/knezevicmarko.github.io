@@ -163,3 +163,27 @@ main()
 {% endhighlight %}
 
 Kada proces dete izađe, a nije sačekan (wait()), najčešće se u **ps** listi prikazuje kao "\<defunct\>". Takav status ima sve dok roditelj ne pozove wait(). Ako roditelj završi pre nego što pozove wait() za dete (pod pretpostavkom da ne ignoriše SIGCHLD), dete dobija novog roditelja. Taj roditelj je **init** proces (PID 1). Ovo nije problem ako dete još uvek nije završilo. Ako je dete već defunct onda ono postaje zombi proces. Na nekim sistemima init proces periodično uništava zombi procese. Na drugim sistemima init proces odbija da postane roditelj defunc procesima i odmah ih uništava.
+
+# Blok kontrole procesa
+
+U operativnom sistemu svaki proces je pretstavljen blokom kontrole procesa (PCB) ili blok kontrole zadataka. PCB je struktura podataka jezgra operativnog sistema koja fizički predstavlja proces u memoriji računara. Sadrži mnoge informacije povezane sa specifičnim procesom od kojih su najznačajnije:
+* **Identifikator** - jedinstveni indetifikator procesa (pid),
+* **Stanje** - ako se proces trenutno izvršava on je u stanju izvršenja (može biti blokiran, na čekanju isl.)
+* **Prioritet** - nivo prioriteta relativno u odnosu na ostale procese
+* **Brojač instrukcija** - Adresa sledeće instrukcije u programu koja će biti izvršena
+* **Memorijski pokazivači** - Uključuje memorijske pokazivače ka programskom kodu i podacima koji su pridruženi procesu i ka memorijskim blokovima koji deli sa drugim procesima.
+* **Konteksni podaci** - podaci koji su prisutni u registrima u trenutku kada se proces izvršava
+* **Statusne informacije I/O uređaja**: Uključuje I/O zahteve, I/O uređaje priključene procesu, listu fajlova koje proces koristi isl.
+* **Informacije naloga** - mogu da sadrže koliko je proces upotrebio procesorskog vremena, vremenska ograničenja i slično.
+
+## Stanje procesa
+
+Svaki proces može biti u jednom od sledećih stanja:
+
+**Slika** stanja procesa.
+
+* **New**: proces je kreiran.
+* **Running**: izvršavaju se instrukcije.
+* **Waiting**: Proces čeka da se neki događaj aktivira (npr. da se primi neki signal ili da I/O uređaj završi posao).
+* **Ready**: Proces čeka da se dodeli procesoru.
+* **Terminated**: Proces je završio sa radom.

@@ -103,6 +103,7 @@ U interaktivnim sistemima korisnik pokreće program kucanjem odgovarajuće koman
 Da bi smo u programskom jeziku C kreirali novi proces potrebno je pozvati funkciju **pid_t fork(void)** standardne biblioteke unistd. Dete proces se u odnosu na proces roditelj razlikuje, između ostalog, i po tome što dobija novi identifikator procesa. Nakon poziva funkcije fork() oba procesa (i roditelj i dete) imaju iste kopije podataka i nastavljaju da izvršavaju isti kod.
 
 pid_t je generički tip procesa. Na Unix sistemima je short. fork() može da vrati samo tri stvari:
+
 * 0 indikator procesa deteta
 * -1 proces dete nije kreiran
 * PID procesa deteta se vraća roditelju.
@@ -164,9 +165,9 @@ main()
 
 Kada proces dete izađe, a nije sačekan (wait()), najčešće se u **ps** listi prikazuje kao "\<defunct\>". Takav status ima sve dok roditelj ne pozove wait(). Ako roditelj završi pre nego što pozove wait() za dete (pod pretpostavkom da ne ignoriše SIGCHLD), dete dobija novog roditelja. Taj roditelj je **init** proces (PID 1). Ovo nije problem ako dete još uvek nije završilo. Ako je dete već defunct onda ono postaje zombi proces. Na nekim sistemima init proces periodično uništava zombi procese. Na drugim sistemima init proces odbija da postane roditelj defunc procesima i odmah ih uništava.
 
-# Blok kontrole procesa
+# Kontrolni blok procesa
 
-U operativnom sistemu svaki proces je predstavljen blokom kontrole procesa (PCB) ili blok kontrole zadataka. PCB je struktura podataka jezgra operativnog sistema koja fizički predstavlja proces u memoriji računara. Sadrži mnoge informacije povezane sa specifičnim procesom od kojih su najznačajnije:
+U operativnom sistemu svaki proces je predstavljen kontrolnim blokom procesa (PCB) ili zadataka. PCB je struktura podataka jezgra operativnog sistema koja fizički predstavlja proces u memoriji računara. Sadrži mnoge informacije povezane sa specifičnim procesom od kojih su najznačajnije:
 
 * **Identifikator** - jedinstveni indetifikator procesa (pid),
 * **Stanje** - ako se proces trenutno izvršava on je u stanju izvršenja (može biti blokiran, na čekanju isl.)
@@ -177,7 +178,7 @@ U operativnom sistemu svaki proces je predstavljen blokom kontrole procesa (PCB)
 * **Statusne informacije I/O uređaja**: Uključuje I/O zahteve, I/O uređaje priključene procesu, listu fajlova koje proces koristi isl.
 * **Informacije naloga** - mogu da sadrže koliko je proces upotrebio procesorskog vremena, vremenska ograničenja i slično.
 
-![Blok kontrole procesa.](/assets/os1/bcp.jpg "Blok kontrole procesa.")
+![Kontrolni blok procesa.](/assets/os1/bcp.jpg "Kontrolni blok procesa.")
 
 ## Stanje procesa
 

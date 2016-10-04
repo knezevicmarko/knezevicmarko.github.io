@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: Prevođenje izvornog koda 1
+title: Prevođenje izvornog koda
 main_category: Materijali za vežbe
 sub_category: Prevođenje
 image: c.png
@@ -97,11 +97,11 @@ int fn_c(int x_local)
 ## 1. Preprocesuiranje
 
 Proces prevodjenja C programa počinje sa preprocesuiranjem direktiva (npr. #include i #define). Preprocesor je odvojen program koji se automatski poziva tokom prevođenja. Na primer, komanda {% highlight c %}#define BROJ 3{% endhighlight %} na liniji 2 fajla primer1.c govori preprocesu da svako pojavljivanje makroa BROJ zameni sa brojem 3 (vrednost makroa). Rezultat je novi fajl (obicno sa ekstenzijom .i). U praksi, preprocesuiran fajl se ne pamti na hdd osim ako nije uključena opcija -save-temps.
-Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl. Da bi izvršio ovaj korak gcc kompajler interno pokreće komadnu {% highlight bash %}cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
+Ovo je prva faza procesa prevođenja gde preprocesor proširuje fajl. Da bi izvršio ovaj korak gcc kompajler interno pokreće komadnu {% highlight bash %}$ cpp primer1.c > primer1.i{% endhighlight %} Rezultat je fajl primer1.i koji sadrži izvorni kod sa proširenim svim makroima. Ovako izvršena komanda pamti fajl primer1.i na hard disk.
 
 ## 2. Prevođenje
 
-U ovoj fazi kompajler prevodi fajl primer1.i u primer1.s izvršenjem komande {% highlight bash %}gcc -S primer1.i{% endhighlight %}Fajl primer1.s sadrži asemblerski kod. Opcija komandne linije -S govori kompajleru da preprocesuirani fajl konvertuje u kod asemblerskog jezika bez kreiranja objektnog fajla. Dodatno objašnjenje komandi asemblerskog koda mogu se pronaći u [dokumentaciji programa **as**](https://sourceware.org/binutils/docs-2.27/as/index.html){:target="_blank"}.
+U ovoj fazi kompajler prevodi fajl primer1.i u primer1.s izvršenjem komande {% highlight bash %}$ gcc -S primer1.i{% endhighlight %}Fajl primer1.s sadrži asemblerski kod. Opcija komandne linije -S govori kompajleru da preprocesuirani fajl konvertuje u kod asemblerskog jezika bez kreiranja objektnog fajla. Dodatno objašnjenje komandi asemblerskog koda mogu se pronaći u [dokumentaciji programa **as**](https://sourceware.org/binutils/docs-2.27/as/index.html){:target="_blank"}.
 
 Prevodilac dozvoljava da se, u kodu, referencira samo na promenljivu ili funkciju koja je prethodno deklarisana. Deklarisanje je obećanje da definicija (promenljive ili funkcije) postoji negde drugde u celom programu.
 
@@ -109,7 +109,7 @@ Prevodilac dozvoljava da se, u kodu, referencira samo na promenljivu ili funkcij
 
 ## 3. Montaža
 
-U ovom koraku montažer (assembler - as) prevodi primer1.s u jezik mašinskih instrukcija i genereiše objektni fajl primer1.o. Izvršenjem komande{% highlight bash %}as primer1.s -o primer1.o{% endhighlight %} se pokreće asembler. Rezultujući fajl primer1.o sadrži mašinske instrukcije C programa primer1.c.
+U ovom koraku montažer (assembler - as) prevodi primer1.s u jezik mašinskih instrukcija i genereiše objektni fajl primer1.o. Izvršenjem komande{% highlight bash %}$ as primer1.s -o primer1.o{% endhighlight %} se pokreće asembler. Rezultujući fajl primer1.o sadrži mašinske instrukcije C programa primer1.c.
 Zavisno od platforme na kojoj se kod prevodi objektni fajl može da bude kreiran u više formata. U tabli ispod su prikazani formati objektnog fajla.
 
 {: .w3-table .w3-bordered .w3-striped .w3-card-4 .w3-margin}
@@ -134,9 +134,9 @@ Određene sekcije se pojavljuju bez obzira na tip formata (moguće je da su drug
 | .rdata | Obeležava se i kao .rodata (read-only data) sekcija. Sadrži konstante i stringove. |
 | .reloc | Sadrži informacije potrebne za realociranje slike procesa tokom učitavanja. |
 | Symbol table | Simbol je u stvari ime i adresa. Tabela simbola sadrži informacije potrebne za lociranje i realociranje programskih simboličkih definicija i referenci.  |
-| Realocation records | Realokacija je proces povezivanja simboličkih referenci sa simboličkom definicijom. Npr. kada program pozove funkciju, neophodno je pronaći odgovarajuću adresu gde se nalazi definicija te funkcije. Prostije rečeno slogovi realokacije su informacije koje linker koristi da prilagodi sadržaj sekcije.  |
+| Relocation records | Relokacija je proces povezivanja simboličkih referenci sa simboličkom definicijom. Npr. kada program pozove funkciju, neophodno je pronaći odgovarajuću adresu gde se nalazi definicija te funkcije. Prostije rečeno slogovi realokacije su informacije koje linker koristi da prilagodi sadržaj sekcije.  |
 
-Sadržaj objektnog fajla moguće je prikazati pomoću **readelf** programa komandom {% highlight bash %}readelf -a primer1.o{% endhighlight %}
+Sadržaj objektnog fajla moguće je prikazati pomoću **readelf** programa komandom {% highlight bash %}$ readelf -a primer1.o{% endhighlight %}
 
 ## 4. Povezivanje
 
@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
 }
 {% endhighlight %}
 
-Pokretanjem komande {% highlight bash %}gcc -c primer2.c{% endhighlight %}kreira se objektni fajl primer2.o.
+Pokretanjem komande {% highlight bash %}$ gcc -c primer2.c{% endhighlight %}kreira se objektni fajl primer2.o.
 
 ![Prevođenje](/assets/os2/prevodjenje2.jpg "Prevođenje 2"){:width="100%"}
 
@@ -173,4 +173,55 @@ Linker u stvari omogućava odvojeno prevođenje. Izvršni fajl može da bude sas
 
 ![Linker](/assets/os2/linker.jpg "Linker"){:width="100%"}
 
-GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu 16.04 Linux-u pozivanjem komande {% highlight bash %}ld -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /usr/lib/x86_64-linux-gnu/crtn.o primer1.o primer2.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L /usr/lib/gcc/x86_64-linux-gnu/5/ -lgcc -lgcc_eh -lc -lgcc -lgcc_eh /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o -o primer{% endhighlight %} se kreira izvršni fajl **primer** koji povezuje primer1.o i primer2.o.
+GCC kompajler povezuje fajlove pomocu alata **ld**. U procesu povezivanja objektnih fajlova neophodno je uključiti i potrebne sistemske fajlove. Spisak potrebnih fajlova se razlikuje od platforme do platforme, takođe i lokacija tih fajlova može da se razlikuje. Pozivanjem komande {% highlight bash %}$ gcc -o primer primer1.o primer2.o -v{% endhighlight %} se implicitno poziva alat ld i ispisuje koje se biblioteke koriste pri procesu povezivanja. Na primer na x64 Ubuntu 16.04 Linux-u pozivanjem komande {% highlight bash %}$ ld -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/x86_64-linux-gnu/crt1.o /usr/lib/x86_64-linux-gnu/crti.o /usr/lib/x86_64-linux-gnu/crtn.o primer1.o primer2.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L /usr/lib/gcc/x86_64-linux-gnu/5/ -lgcc -lgcc_eh -lc -lgcc -lgcc_eh /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o -o primer{% endhighlight %} se kreira izvršni fajl **primer** koji povezuje primer1.o i primer2.o.
+
+Pri procesu prevođenja na mašinski kod asembler uklanja sve labele iz koda. Objektni fajl mora da zadrži te informacije na drugoj lokaciji. Ta druga lokacija je **tabela simbola** koja sadrži listu imena i odgovarajuće adrese ka text ili data segmentima.
+
+Objektni fajlovi uključuju reference ka kodovima i/ili podacima drugih objektnih fajlova, tj. ka različitim lokacijama, pa se sve mora ukomponovati u jednu celinu tokom procesa povezivanja. Na primer, objektni fajl koji sadrži funkciju main() može da uključuje pozive ka funkcijama funct() i printf(). Nakon povezivanja svih objektnih fajlova, linker koristi podatke iz sekcije **relocation records** da pronađe sve potrebne adrese.
+
+![Relocation record.](/assets/os2/relocation.png "Relocation record.")
+
+# Deljeni objekti
+
+U tipičnom sistemu biće pokrenut veći broj programa. Svaki program koristi veći broj funkcija od kojih su neke standardne C funkcije (printf(), malloc(), strcpy(), ...), a neke su nestandardne ili korisnički definisane funkcije. Ako svaki program koristi standardne C biblioteke, to znači da bi svaki program trebalo da ima jedinstvenu kopiju te biblioteke u izvršnom fajlu. Takav pristup kao rezultat ima rasipanje resursa i pad efikasnosti i performansi. Zato što su C biblioteke uobičajne, bolje je da se programi referenciraju na jednu instancu biblioteke umesto da imaju svako svoju kopiju. Ovo može da se postigne tako što će neki objekti da se povezuju tokom povezivanja (statically linked), a neki tokom izvršenja (dynamic/deferred linking).
+
+## Statičko povezivanje
+
+Statičko povezivanje je vrsta povezivanja u kome se program i određena biblioteka povezuju tako što izvršni fajl postaje unija tih objektnih fajlova. Njihovo povezivanje je fiksno i poznato pri procesu povezivanja (pre pokretanja programa). Takođe, nemoguće je promeniti ovu vezu osim ako ne pokrenemo ponovno povezivanje sa novom verzijom biblioteke.
+Program koji je statički povezan se povezuje sa arhivom objekata (biblioteka) koja obično ima ekstenziju **.a**. Primer ovakve kolekcije objekata je standardna C biblioteka, libc.a. Ovakav način povezivanja se obično koristi kada je potrebno povezati program sa tačno određenom verzijom biblioteke, a kada ne možemo biti sigurni da je ta verzija dostupna pri pokretanju programa. Loša strana ovakvog pristupa je ta da izvršni fajl je značajno veće veličine. Objektni fajlovi mogu da kreiraju statičku biblioteku korišćenjem alata **ar**.
+{% highlight bash %}
+$ ar cr static.a objetni_fajl1.o objektni_fajl2.o
+$ gcc -Wall main.c static.a -o izvrsni_fajl
+{% endhighlight %}
+
+## Dinamičko povezivanje
+
+Dinamičkim povezivanjem se program i određena biblioteka koju koristi ne kombinuju zajedno već povezuju pri pokretanju. Linker postavlja informacije u izvršni fajl koji govori loader-u u kom objektnom modulu i koji linker treba da koristi da bi se pronašle i povazale reference. Ovo znači da se povezivanje programa i deljenih objekta vrši ili pre nego što se program startuje (load-time dynamic linking) ili kada se referencira na na neki simbol iz biblioteke (run-time dynamic linking). U suštini, pri povezivanju linker samo proverava da li simboli deljenog objekta postoje u naznačenoj biblioteci i u izvršni fajl unosi informaciju na kojoj lokaciji se nalazi biblioteka. Na ovaj način se povezivanje odlaže sve do pokretanja programa ili kasnije.
+
+Dinamičke biblioteke obično imaju prefiks **lib** i ekstenziju **.so**. Primer takvog objekta je deljena verzija standardne C biblioteke libc.so. Prednosti odloženog povezivanja nekih objekata/modula do trenutka kada su oni stvarno potrebni su sledeće:
+
+1. Programski fajlovi (na hdd-u) postaju značajno manji. Ne moraju da sadrže sve neophodne text i data segmentne informacije.
+2. Standardne biblioteke mogu da se menjaju (nove verzije) bez potrebe da se svaki program ponovo linkuje.
+3. U kombinaciji sa virtuelnom memorijom, dinamičko povezivanje omogućava da dva ili više procesa dele read-only izvršni modul (npr. C biblioteku). Korišćenjem ove tehnike samo jedna kopija modula je potrebna u memoriji u bilo kom trenutku. Rezultat je značajna ušteda memorije, ali zahteva efikasnu politiku zamene...
+
+{% highlight bash %}
+$ gcc -c -Wall -Werror -fpic ime_fajla.c
+$ gcc -shared -o ime_biblioteke.so objetni_fajl.o
+$ gcc -Wall -o izvršni main.c ime_biblioteke.so
+{% endhighlight %}
+GCC flag -fpic govori da se kod prevede u PIC (position-independent code). Takav kod radi bez obzira gde se u memoriji nalazi. Ne sadrži fiksne memorijske adrese, da bi takvu biblioteku mogli da koriste više procesa.
+
+## Učitavanje procesa
+
+U Linux sistemima izvršni programi se učitavaju u ELF formatu. Pre izvršenja potrebno je učitati procese u RAM. Proces učitavanja se pokreće sistemskim pozivom execve() ili spawn(). Posao učitavanja obavlja **loader** koji je deo operativnog sistema. Loader, izveđu ostalog, radi sledeće:
+
+1. Validira memoriju i prava pristupa: Jezgro OS čita zaglavlje fajla i validira tipove, prava pristupa i zahteve za memorijom, kako i sposobnost da izvršava instrukcije programa. On potrvrđuje da je fajl izvršni i preračunava potrebnu memoriju.
+2. Podešavanje procesa uključuje:
+  - Alokaciju primarne memorije potrebne za izvršavanje programa. Pri alokaciji se ostavlja prostor za .text i .data i .bss sekcije, kao i za stek i heap. Ovakva organizacija memorije dozvoljava da se napravi "razmak" između dinamički alocirane memorije heap-a i stack-a.
+  - Tipičan proces sadrži 5 različitih memorijskih oblasti (za text, bss, data, stack i heap) koji se nazivaju segmenti.
+  - Kopira .text i .data sekcije iz sekundarne u primarnu memoriju.
+  - Kopira argumente komandne linije na stek.
+  - Inicijalizuje registre (postavlja esp (stack pointer) na vrh steka i čisti ostale registre)
+  - Skače na početnu rutinu, koja kopira argumente main() funkcije sa steka i skače na main().
+
+![Izgled procesa u memoriji.](/assets/os2/proces.png "Izgled procesa u memoriji.")

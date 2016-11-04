@@ -372,5 +372,3 @@ int main(void)
   return 0;
 }
 {% endhighlight %}
-
-**Za domaći:** Realizovati primo-predaju konačnog bafera koristeći deljenu memoriju i semafore.

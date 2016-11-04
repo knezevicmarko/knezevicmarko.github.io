@@ -10,7 +10,7 @@ comment: true
 
 Aproksimacija vrednosti broja $$ \pi $$ primenom Monte Carlo metode.
 
-![Monte Carlo](/assets/os2/montecarlo.gif "Monte Carlo"){:style="width: auto;"}
+![By CaitlinJo [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons](/assets/os2/montecarlo.gif "By CaitlinJo [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons"){:style="width: auto;"}
 
 {% highlight c %}
 #include<stdio.h>

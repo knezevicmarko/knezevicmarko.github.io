@@ -44,6 +44,20 @@ int main()
 }
 {% endhighlight %}
 
+Sporija varijanta generatora slučajnih brojeva.
+
+{% highlight c %}
+#define NEW_RAND f1 *=171; f1%=30269; f2*=172; f2%=30307; f3*=170; f3%= 30323; u=((((f1 * 1.0))/30269.0)  + ((f2*1.0)/30307.0)  + ((f3 * 1.0)/30323.0)); u = u - floor(u);
+
+unsigned long f1=100 + rand(),f2=20  + rand(), f3=2500 + rand();
+double u;
+
+for(.....){
+   NEW_RAND
+   x = u;
+}
+{% endhighlight %}
+
 ## Domaći zadatak 1.
 
 Dati serijski algoritam, korišćenjem pthread biblioteke, prilagoditi za višenitno izvšenje (N niti).

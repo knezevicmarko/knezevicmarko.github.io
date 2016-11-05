@@ -132,7 +132,7 @@ Vrši kontrolne operacije nad skupom semafora definisanim sa semid ili nad nekim
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
-int semop(int semid, int semnum, int cmd, ... /* arg */);
+int semctl(int semid, int semnum, int cmd, ... /* arg */);
 {% endhighlight %}
 Povratna vrednost je pozitivan ceo broj ili -1 i errno:
 

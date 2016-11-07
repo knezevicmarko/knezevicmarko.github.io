@@ -3,7 +3,7 @@ layout: lekcija
 title: Uvod
 main_category: Materijali za vežbe
 sub_category: Linux
-image: homework.png
+image: linux1.png
 active: true
 comment: true
 ---
@@ -79,6 +79,7 @@ Svi programi, uključujući i sistemske, funkcionišu na nivou iznad kernela, š
 ## Osnovni zadaci
 
 Četiri su osnovna tipa zadataka u administraciji disk fajl sistema:
+
 * **formatiranje diska na niskom nivou** - većina diskova koji se danas proizvode fabrički su preformatirani
 * **podela diska na particije**
 * **kreiranje fajl sistema** na particijama diska

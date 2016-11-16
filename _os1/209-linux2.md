@@ -3,8 +3,8 @@ layout: lekcija
 title: Korisnici i grupe
 main_category: Materijali za vežbe
 sub_category: Linux
-image: linux1.png
-active: false
+image: users.png
+active: true
 comment: true
 ---
 
@@ -127,3 +127,155 @@ Komande za kreiranje, menjanje i brisanje naloga i grupa je uglavnom standardizo
 * I na kraju sledi kreiranje direktorijuma željenog naloga u **/home direktorijumu**.
 
 Naravno ovi koraci se mogu izbeći koristeći sledeću komandu, podrazumevajući da ste registrovani kao administrator tj. root.
+
+### useradd
+
+**useradd**
+
+    - -c komentar
+	- -d home direktorijum
+	- -e datum isteka naloga
+	- -f koliko dana pre isteka roka korisnik dobija obaveštenje
+	- -g primarna grupa
+	- -G sekundarna grupa
+	- -m kreira home direktorijum ako ne postoji
+	- -s ime shella koji će korisnik koristiti
+	- -u ID korisnika  ime naloga
+
+**Primer.** Kreiranje naloga pod imenom **unixnewbie**, čije pravo ime je Jane Doe. Jane je potreban nalog do 4. Aprila 2010. Njena primarna grupa je **users**, a sekundarna authors. Ime shell-a koji koristi je Bourne Again shell (bash). Ako ako se ne prijavi na nalog u periodu od 60 dana, nalog će biti blokiran.
+{% highlight bash %}
+$ useradd -c “Jane Doe” -d /home/unixnewbie -e 040410 -f 60 -g users -G authors -m -s /bin/bash -u 1000 unixnewbie
+{% endhighlight %}
+Nakon ove komande treba postaviti password za ovog korisnika komandom:
+{% highlight bash %}
+$ passwd unixnewbie
+{% endhighlight %}
+
+### adduser
+
+{% highlight bash %}
+$ adduser
+{% endhighlight %}
+{% highlight bash %}
+Enter a username to add: jsmith
+Adding user jsmith...
+Adding new group jsmith (1051).
+Adding new user jsmith (1051) with group jsmith.
+Creating home directory /home/jsmith.
+Copying files from /etc/skel
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for jsmith
+Enter the new value, or press return for the default
+Full Name []: John Smith
+Room Number []: 409
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [y/n] y
+{% endhighlight %}
+
+### usermod
+
+Komanda za menjanje korisničkog naloga. Ima iste opcije kao i useradd sa dodatnom opcijom -l koja daje mogućnost promene imena korisničkog naloga. Posle ove opcije navodi se novo ime pa ime koje se menja. Treba voditi računa o tome da li sistem vrši autentifikaciju prema imenu ili prema UID numeričkoj vrednosti. Evo primera:
+{% highlight bash %}
+$ usermod -d /home/saraht -m -l saraht storvald
+{% endhighlight %}
+
+userdel
+Brisnje naloga tj. korisnika. Ima jednu opciju -r koja nam daje mogućnost da se izbriše i home direktorijum ovog korisnika.
+{% highlight bash %}
+$ userdel -r saraht
+{% endhighlight %}
+
+# Administracija grupa
+
+Komande za rad sa grupama su **groupadd**, **groupmod** i **groupdel** i iste su na skoro svim distribucijama. Primer:
+
+* **groupadd -g ID grupa Imegrupe**
+* **groupmod -n Promenjenoimegrupe Novoimegrupe** - pored opcije -n može se koristi i opcija -g kada se umesto imena navodi ID grupe.
+* **groupdel Imegrupe** - ovde se uklanja samo grupa ali ne i fajlovi koji su povezani sa tom grupom.
+
+# Identifikacija korisnika
+
+Dve osnovne komande pomoću kojih se može odrediti ko je prijavljen na sistem su who i finger.
+
+### who
+
+Komanda who prikazuje korisničko ime, terminal (line), vreme prijavljivanja (login-time) i host računar (from) **za sve korisnike koji su prijavljeni na sistem**. Ukoliko se komanda zada sa parametrom -H rezultat će biti prikazan sa zaglavljem. Ukoliko se zada sa parametrom -q prikazuju se samo imena i ukupan broj korisnika prijavljenih na sistem.
+{% highlight bash %}
+$ who -H
+{% endhighlight %}
+{% highlight bash %}
+NAME 		LINE 	TIME 			COMMENT
+root 		pts/0 Mar 24 18:50 	(nicotine.internal.vets.edu.rs)
+jsmith 		pts/1 Mar 24 19:50 	(lab409.internal.vets.edu.rs)
+{% endhighlight %}
+{% highlight bash %}
+$ who -q
+{% endhighlight %}
+{% highlight bash %}
+root 		jsmith
+{% endhighlight %}
+{% highlight bash %}
+$ users=2
+{% endhighlight %}
+
+### finger
+
+Komanda finger daje sličan rezultat - prikazuje korisnike prijavljene na sistem, a pomoću nje se mogu dobiti i detaljne informacije o korisnicima iz /etc/passwd datoteke, **bez obzira da li su oni trenutno prijavljeni na sistem ili ne**. Dodatno se mogu dobiti i **informacije o korisnicima udaljenih sistema** (npr: finger coyote@acme.com), ali se takvi pokušaji najčešće završe porukom "connection refused".
+{% highlight bash %}
+$ finger
+{% endhighlight %}
+{% highlight bash %}
+Login 	Name 		Tty 	Idle 	Login	Time
+jsmith John Smith 	pts/1 1 	Mar 25 15:48 	(nicotine)
+root 	root *	pts/0 	Mar 25 15:47 	(nicotine)
+{% endhighlight %}
+{% highlight bash %}
+$ finger jsmith
+{% endhighlight %}
+{% highlight bash %}
+Login: jsmith 				Name: John Smith Jr.
+Directory: /home/jsmith 		Shell: /bin/bash
+Office: 425, 39xx450 			Home Phone: 44xx012
+Last login Wed Mar 24 17:28 (CET) on pts/1 from nicotine
+No mail.
+No Plan.
+{% endhighlight %}
+
+## Privremeno prijavljivanje na sistem pod drugim imenom
+
+Korisnik se privremeno može prijaviti na sistem pod drugim imenom pomoću komande su (switch user) i na taj na in pristupiti resursima koji pripadaju drugom korisniku. Najčešće se koristi ukoliko je potrebno izvršiti promenu datoteka koje pripadaju drugom korisniku, promenu pristupnih prava ili pokretanje nekog programa. Administratori koriste ovu komandu da bi razrešili neki problem sa korisničkim nalogom ili u svrhe testiranja autorizacije i ponašanja naloga sa izvesnim aplikacijama. Sintaksa komande su je sledeća:
+{% highlight bash %}
+$ su [-] [username]
+{% endhighlight %}
+
+Od korisnika koji pokreće komandu su (ukoliko to nije root) zahteva se da unese i lozinku za korisnički nalog koji želi privremeno da koristi. Nakon unošenja lozinke korisnik ima sve privilegije tog naloga.
+
+Ukoliko je potrebno da se prilikom privremenog prijavljivanja na sistem pročitaju **nove inicijalizacione datoteke specifičnog korisnika, potrebno je zadati komandu sa parametrom** "-" pre korisničkog imena (npr. **su – milos**). Na taj način će se izvršiti postavljanje promenljivih i prelazak na home direktorijum tog korisnika. Povratak na originalni korisnički nalog vrši se komandom exit.
+{% highlight bash %}
+$ whoami
+jsmith
+{% endhighlight %}
+{% highlight bash %}
+$ pwd
+/home/jsmith
+{% endhighlight %}
+{% highlight bash %}
+$ su nmacek
+Password:
+{% endhighlight %}
+{% highlight bash %}
+$ whoami
+nmacek
+{% endhighlight %}
+{% highlight bash %}
+$ pwd
+/home/jsmith
+{% endhighlight %}
+{% highlight bash %}
+$ exit
+exit
+{% endhighlight %}

@@ -60,7 +60,7 @@ backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
 
 Za svaki nalog je vezano nekoliko atributa.
 
-**Slika** Izgled reda u /etc/passwd
+![Izgled reda u /etc/passwd.](/assets/os1/passwd-file.png "Izgled reda u /etc/passwd.")
 
 * **Login ID** atribut je ime naloga tj. korisnicko ime koje korisnik unosi pri prijavljivanju na sistem.
 * **Encrypted Password** predstavljen sa “x” je mesto gde se u ranijim verzijama sistema ovde se nalazila kriptovana lozinka ali se danas zbog sigurnosti nalazi u posebnom fajlu /etc/shadow.
@@ -82,7 +82,8 @@ marko:tc2kk31xv1PxQ:12735::::::
 {% endhighlight %}
 Podaci o svakom nalogu imaju devet mogućih mesta za podatke.
 
-**Slika** Izgled linije fajla /etc/shadow
+![Izgled linije fajla /etc/shadow.](/assets/os1/shadow-file.jpg "Izgled linije fajla /etc/shadow.")
+
 
 * **Login ID** predstavlja naziv korisničkog naloga.
 * **Encrypted Password** je niz karaktera koji predstavlja kriptovan password. Ovo polje može sadržati 13 ili više karaktera, a ako je ovo polje prazno korisnik se na ovaj nalog može prijaviti bez lozinke.

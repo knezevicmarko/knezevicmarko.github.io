@@ -206,20 +206,14 @@ Dve osnovne komande pomoću kojih se može odrediti ko je prijavljen na sistem s
 Komanda who prikazuje korisničko ime, terminal (line), vreme prijavljivanja (login-time) i host računar (from) **za sve korisnike koji su prijavljeni na sistem**. Ukoliko se komanda zada sa parametrom -H rezultat će biti prikazan sa zaglavljem. Ukoliko se zada sa parametrom -q prikazuju se samo imena i ukupan broj korisnika prijavljenih na sistem.
 {% highlight bash %}
 $ who -H
-{% endhighlight %}
-{% highlight bash %}
 NAME 		LINE 	TIME 			COMMENT
 root 		pts/0 Mar 24 18:50 	(nicotine.internal.vets.edu.rs)
 jsmith 		pts/1 Mar 24 19:50 	(lab409.internal.vets.edu.rs)
 {% endhighlight %}
 {% highlight bash %}
 $ who -q
-{% endhighlight %}
-{% highlight bash %}
 root 		jsmith
-{% endhighlight %}
-{% highlight bash %}
-$ users=2
+# users=2
 {% endhighlight %}
 
 ### finger
@@ -227,16 +221,12 @@ $ users=2
 Komanda finger daje sličan rezultat - prikazuje korisnike prijavljene na sistem, a pomoću nje se mogu dobiti i detaljne informacije o korisnicima iz /etc/passwd datoteke, **bez obzira da li su oni trenutno prijavljeni na sistem ili ne**. Dodatno se mogu dobiti i **informacije o korisnicima udaljenih sistema** (npr: finger coyote@acme.com), ali se takvi pokušaji najčešće završe porukom "connection refused".
 {% highlight bash %}
 $ finger
-{% endhighlight %}
-{% highlight bash %}
 Login 	Name 		Tty 	Idle 	Login	Time
 jsmith John Smith 	pts/1 1 	Mar 25 15:48 	(nicotine)
 root 	root *	pts/0 	Mar 25 15:47 	(nicotine)
 {% endhighlight %}
 {% highlight bash %}
 $ finger jsmith
-{% endhighlight %}
-{% highlight bash %}
 Login: jsmith 				Name: John Smith Jr.
 Directory: /home/jsmith 		Shell: /bin/bash
 Office: 425, 39xx450 			Home Phone: 44xx012
@@ -278,4 +268,34 @@ $ pwd
 {% highlight bash %}
 $ exit
 exit
+{% endhighlight %}
+
+# Stvarni i efektivni identifikatori korisnika (RUID i EUID)
+
+ID korisnika koji je inicijalno prijavljen na UNIX sistem predstavlja je stvarni identifikator korisnika (RUID - Real User ID). Ukoliko se korisnik privremeno prijavi na sistem pod drugim imenom komandom su, njegov ID se privremeno menja. U cilju razlikovanja inicijalno i privremeno prijavljenih korisnika uvodi se efektivni identifikator korisnika (EUID - Effective User ID).
+
+Za RUID i EUID važi sledeće:
+
+* RUID je ID korisnika koji je inicijalno prijavljen na sistem i ne menja se tokom rada, bez obzira da li je korisnik pokrenuo komandu su i prijavio se pod drugim imenom,
+* EUID je jednak RUID ukoliko korisnik nije pokrenuo komandu su, odnosno UID korisnika pod čijim imenom je privremeno prijavljen, ukoliko je izvršena zamena identiteta komandom su.
+Komanda id može poslužiti za dobijanje informacija koji je UID, GID i kojim sve grupama pripada efektivni nalog (EUID).
+{% highlight bash %}
+$ id
+uid=1051(jsmith) gid=1051(jsmith) groups=1051(jsmith)
+{% endhighlight %}
+{% highlight bash %}
+$ whoami
+jsmith pts/1 Mar 25 16:09 (nicotine.internal.vets.edu.rs)
+{% endhighlight %}
+{% highlight bash %}
+$ su -
+Password:
+{% endhighlight %}
+{% highlight bash %}
+$ id
+uid=0(root) gid=0(root) groups=0(root)
+{% endhighlight %}
+{% highlight bash %}
+$ whoami
+jsmith pts/1 Mar 25 16:09 (nicotine.internal.vets.edu.rs)
 {% endhighlight %}

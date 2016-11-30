@@ -3,7 +3,7 @@ layout: lekcija
 title: SHELL - alati za shell programiranje
 main_category: Materijali za vežbe
 sub_category: Linux
-image: terminal.png
+image: shell1.png
 active: true
 comment: true
 ---

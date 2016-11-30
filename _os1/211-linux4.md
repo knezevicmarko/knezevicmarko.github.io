@@ -403,11 +403,24 @@ $ find /usr/home -name list.txt -exec rm {} \;
 ## Traženje teksta u fajlu
 
 ### grep
+Grep je skraćenica od global regular expression print. Sintaksa grep komande je sledeća:
 {% highlight bash %}
-$ grep only myfile
-$ grep 'w.r' myfile
+grep string_za_pretragu fajl_za_pretragu
 {% endhighlight %}
-Komanda grep može koristiti tzv. regularne izraze, o kojima će biti reči u posebnom poglavlju jer su veoma značajni prilikom procesiranja teksta.
+Grep podržava najveći broj metakaraktera.
+
+Jednostavni grep se može iskoristiti za pretragu reči root u fajlovima direktorijuma /etc i njegovim poddirektorijumima:
+{% highlight bash %}
+grep root /etc/*
+{% endhighlight %}
+Grep takođe ima argument -v koji odgovara pretrazi svega što ne sadrži zadati string:
+{% highlight bash %}
+grep -v root /etc/passwd
+{% endhighlight %}
+Komanda grep se može koristiti i preko pajpa, kada se njen stdin zamenjuje izlazom iz neke druge komande:
+{% highlight bash %}
+cat /etc/passwd | grep root
+{% endhighlight %}
 
 ## Linkovi
 

@@ -154,7 +154,7 @@ Metakarakteri su korisni u redukciji količine teksta koji se koristi sa komanda
 * **. - Tačka. Reprezentuje jedan karakter.**
 Primer: Pronaći bilo koju pojavu slova c i slova t sa tačno jednim karakterom između.
 {% highlight bash %}
-$ grep "c.t" /temp/testfile
+$ grep -E "c.t" /temp/testfile
 Simplicity
 apricot
 cat
@@ -173,7 +173,7 @@ cccccot
 
 Primer: Pronaći bilo koju instancu slova c i slova t sa tačno jednim samoglasnikom između.
 {% highlight bash %}
-$ grep "c[aeiou]t" /temp/testfile
+$ grep -E "c[aeiou]t" /temp/testfile
 Simplicity
 apricot
 cat
@@ -190,7 +190,7 @@ cccccot
 
 Primer: Pronaći sve instance slova c i slova t sa nula ili više karaktera između njih.
 {% highlight bash %}
-$ grep "c*t" /temp/testfile
+$ grep -E "c*t" /temp/testfile
 Juliet Capulet
 The model identifier is DEn5c89zt.
 Sarcastic was what he was.
@@ -226,7 +226,7 @@ cccccot
 Primer: Pronaći sve pojave karaktera c i karaktera 5, a da između njih ne stoji nikakav samoglasnik.
 
 {% highlight bash %}
-$ grep "c[^aeiou]t" /temp/testfile
+$ grep -E "c[^aeiou]t" /temp/testfile
 dc9tg4
 c?t
 {% endhighlight %}
@@ -235,7 +235,7 @@ c?t
 
 Primer: Pronaći sve pojave stringa ca na početku linije.
 {% highlight bash %}
-$ grep "^ca" /temp/testfile
+$ grep -E "^ca" /temp/testfile
 capulet
 cat
 {% endhighlight %}
@@ -253,7 +253,7 @@ The punctuation and capitalization is important in this example.
 
 Primer: Pronaći sve pojave slova c praćenog samoglasnikom i slovom t na početku linije.
 {% highlight bash %}
-$ grep "^c[aoiue]t" /temp/testfile
+$ grep -E "^c[aoiue]t" /temp/testfile
 cat
 cot
 cut
@@ -276,7 +276,7 @@ cccccot
 
 Primer: Pronaći linije koje se završavaju slovima c i t između kojih može biti bilo šta.
 {% highlight bash %}
-$ grep "c*t$" /temp/testfile
+$ grep -E "c*t$" /temp/testfile
 Juliet Capulet
 apricot
 capulet

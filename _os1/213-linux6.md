@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: SHELL - osnove programiranja
+title: SHELL - osnove programiranja 1
 main_category: Materijali za vežbe
 sub_category: Linux
 image: shell.gif

@@ -3,7 +3,7 @@ layout: lekcija
 title: SHELL - osnove programiranja 2
 main_category: Materijali za vežbe
 sub_category: Linux
-image: shell2.png
+image: shell2.png 
 active: true
 comment: true
 ---

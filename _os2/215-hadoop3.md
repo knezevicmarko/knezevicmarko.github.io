@@ -4,7 +4,7 @@ title: Indekser linija
 main_category: Materijali za vežbe
 sub_category: Apache Hadoop
 image: indexer.png
-active: true
+active: false
 comment: true
 ---
 

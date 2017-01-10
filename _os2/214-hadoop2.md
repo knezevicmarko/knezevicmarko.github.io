@@ -4,7 +4,7 @@ title: Brojač reči
 main_category: Materijali za vežbe
 sub_category: Apache Hadoop
 image: counter.png
-active: true
+active: false
 comment: true
 ---
 

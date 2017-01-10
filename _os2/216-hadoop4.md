@@ -4,7 +4,7 @@ title: Spajanje
 main_category: Materijali za vežbe
 sub_category: Apache Hadoop
 image: join.png
-active: true
+active: false
 comment: true
 ---
 

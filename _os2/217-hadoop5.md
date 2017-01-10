@@ -4,7 +4,7 @@ title: Like
 main_category: Materijali za vežbe
 sub_category: Apache Hadoop
 image: like.png
-active: true
+active: false
 comment: true
 ---
 

@@ -4,7 +4,7 @@ title: Kategorizacija kompanija
 main_category: Materijali za vežbe
 sub_category: Parametarski posao
 image: company.png
-active: true
+active: false
 comment: true
 ---
 

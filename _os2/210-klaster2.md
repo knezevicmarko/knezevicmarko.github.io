@@ -4,7 +4,7 @@ title: Emiteri
 main_category: Materijali za vežbe
 sub_category: Parametarski posao
 image: emiteri.png
-active: false
+active: true
 comment: true
 ---
 

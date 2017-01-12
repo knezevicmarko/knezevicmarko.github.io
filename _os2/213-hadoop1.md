@@ -4,7 +4,7 @@ title: Uvod
 main_category: Materijali za vežbe
 sub_category: Apache Hadoop
 image: Hadoop.png
-active: false
+active: true
 comment: true
 ---
 

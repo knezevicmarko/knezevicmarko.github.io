@@ -34,3 +34,9 @@ collections:
     image: fa fa-tasks
     description:
       Upravljanje ulazno/izlaznim uređajima i raspoređivanje diska. Fajl sistemi. Jednoprocesorsko raspoređivanje (scheduling). Višeprocesorsko raspoređivanje i raspođivanje u realnom vremenu. Distribuirani sistemi, klijent/serveri i klasteri. Grid računarstvo. Sigurnost i bezbednost računarskih sistema.
+  bp1:
+    title: Baze podataka 1
+    output: true
+    image: fa fa-archive
+    description:
+      Struktura podataka. Klasifikacija, elementi fizičke i logičke strukture, čuvanje podataka. Opšta struktura sistema za upravljanje bazama podataka. Modeli baza podataka. Osnovni tehnološko-tehnički koncepti. Baze podataka i metodologija razvoja IS. ER model. Entitetski i referencijalni integritet. Relacioni model. Struktura relacionog modela. Operacije relacionog modela. Relacioni upitni jezik. Razvoj SQL-a, tipovi podataka i naredbe. Pogledi. Ugrađeni SQL. Preslikavanje konceptualne šeme na relacionu šemu. Programiranje u relacionim bazama podataka. Upravljanje transakcijama. Oporavak BP. Normalne forme-projektovanje relacija normalizacijom. Dizajniranje logičke i fizičke strukture baze podataka i podešavanje. Memorisanje podataka i indeksiranje. Uvod u optimizaciju upita. RDBMS. Struktura datoteka. Prostor za tabele i segmenti. Korisnički objekti BP. Tipovi podataka. Memorijska struktura. Struktura procesa. Upravljanje RDBMS-om.

@@ -10,5 +10,8 @@ archive: false
 ---
 
 
+---
 <embed src="/assets/bp1/bp1_vezbe1.pdf" width="768" height="768">
 ---
+
+*  [Link ka prezentaciji.](/assets/bp1/bp1_vezbe1.pdf)

@@ -12,7 +12,7 @@ layout: default
 
 {% assign mcreate = "" %}
 {% for pg in site[page.collection] %}
-{% if pg.main_category and pg.active %}
+{% if pg.main_category and pg.active and pg.archive != true %}
   {% assign mcreate = mcreate | append: '|' | append: pg.main_category %}
 {% endif %}
 {% endfor %}
@@ -26,7 +26,7 @@ layout: default
     <div class="w3-accordion-content w3-padding" id="{{ category }}">
       <ul class="w3-ul w3-card-4 w3-white">
       {% for pg in site[page.collection] %}
-        {% if pg.main_category == category and pg.active %}
+        {% if pg.main_category == category and pg.active and pg.archive != true %}
           <li class="w3-padding-16">
             <a href="{{ pg.url }}">
             {% if pg.image %}

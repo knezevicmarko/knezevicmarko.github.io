@@ -6,6 +6,7 @@ sub_category: Linux
 image: linux.png
 active: false
 comment: false
+archive: true
 ---
 
 Ovo je prva lekcija iz Linux dela.

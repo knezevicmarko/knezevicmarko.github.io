@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: signal.png
 active: true
 comment: true
+archive: true
 ---
 # Hardverske inovacije
 

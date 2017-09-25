@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: semaphore.png
 active: true
 comment: true
+archive: true
 ---
 
 # Tipični problemi komunikacije i sinhronizacije procesa

@@ -7,7 +7,7 @@ layout: default
       <li><strong>{{ page.main_category }}{% if page.sub_category %} / {{ page.sub_category }}{% endif %}</strong></li>
       {% for pg in site[page.collection] %}
        {% if page.sub_category %}
-        {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+        {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active and pg.archive != true %}
           <li class="w3-padding-tiny"><a class="w3-btn-block w3-left-align {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a></li>
         {% endif %}
        {% else %}
@@ -37,11 +37,11 @@ layout: default
       <div class="w3-dropdown-content w3-border">
         {% for pg in site[page.collection] %}
          {% if page.sub_category %}
-          {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+          {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active and pg.archive != true %}
             <a class="w3-btn-block w3-left-align {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a>
           {% endif %}
          {% else %}
-          {% if pg.main_category == page.main_category and pg.active %}
+          {% if pg.main_category == page.main_category and pg.active and pg.archive != true %}
             <a class="w3-btn-block w3-left-align {% if page.url == pg.url %}w3-blue{% else %}w3-white{% endif %}" href="{{ pg.url }}">{{ pg.title }}</a>
           {% endif %}
          {% endif %}
@@ -55,12 +55,12 @@ layout: default
     <ul class="w3-pagination w3-border w3-round">
     {% for pg in site[page.collection] %}
      {% if page.sub_category %}
-      {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active %}
+      {% if pg.main_category == page.main_category and pg.sub_category == page.sub_category and pg.active and pg.archive != true %}
         <li><a {% if page.url == pg.url %}class="w3-blue"{% endif %} href="{{ pg.url }}">{{ count }}</a></li>
         {% assign count = count | plus: 1 %}
       {% endif %}
      {% else %}
-      {% if pg.main_category == page.main_category and pg.active %}
+      {% if pg.main_category == page.main_category and pg.active and pg.archive != true %}
         <li><a {% if page.url == pg.url %}class="w3-blue"{% endif %} href="{{ pg.url }}">{{ pg.title }}</a></li>
         {% assign count = count | plus: 1 %}
       {% endif %}

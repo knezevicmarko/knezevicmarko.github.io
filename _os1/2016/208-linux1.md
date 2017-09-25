@@ -6,6 +6,7 @@ sub_category: Linux
 image: linux1.png
 active: true
 comment: true
+archive: true
 ---
 
 # 1. Istorijat

@@ -6,6 +6,7 @@ sub_category: Linux
 image: lock.png
 active: true
 comment: true
+archive: true
 ---
 
 Pristup resursima pod mrežnim operativnim sistemima (kao što je i Linux) je strogo kontrolisan. Fajl sistem je fundamentalni resurs svake radne stanice ili servera, a kontrola pristupa fajlovima i direktorijumima (dodela ovlašćenja za pristup i zaštita od neovlašćenog pristupa) ključna komponenta ozbiljnih zaštitnih polisa u svakom višekorisničkom sistemu.

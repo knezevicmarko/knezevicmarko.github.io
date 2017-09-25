@@ -6,6 +6,7 @@ sub_category: PowerShell
 image: powershell.png
 active: true
 comment: true
+archive: true
 ---
 
 # Materijali

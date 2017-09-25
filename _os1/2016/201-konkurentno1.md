@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: lmw.png
 active: true
 comment: true
+archive: true
 ---
 # Operativni sistem
 

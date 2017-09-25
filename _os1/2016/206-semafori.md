@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: semaphore1.png
 active: true
 comment: true
+archive: true
 ---
 
 Semafor predstavlja generički mehanizam kontrole pristupa. Može da se koristi za kontrolu pristupa fajlovima, deljenoj memoriji isl. Osnovne funkcionalnosti semafora su: njegovo postavljanje, provera ili čekanje dok se ne ispune uslovi i postavljanje ("test-and-set").

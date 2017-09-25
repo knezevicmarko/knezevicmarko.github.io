@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: homework.png
 active: true
 comment: true
+archive: true
 ---
 
 Primer realizacije višestrukog bafera korišćenjem deljene memorije i semafora.

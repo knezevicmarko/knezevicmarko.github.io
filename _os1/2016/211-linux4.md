@@ -6,6 +6,7 @@ sub_category: Linux
 image: terminal.png
 active: true
 comment: true
+archive: true
 ---
 
 Grafičko radno okruženje opterećuje procesor i povećava rizik u smislu sigurnosti sistema, tako da se, po pravilu, ne instalira na serverima. Tada sistem administratorima na raspolaganju ostaje komandni interpreter (shell) i prateći skup alata za rad sa fajlovima.

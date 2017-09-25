@@ -6,6 +6,7 @@ sub_category: Linux
 image: shell.gif
 active: true
 comment: true
+archive: true
 ---
 
 # Promenljive

@@ -6,6 +6,7 @@ sub_category: Linux
 image: shell1.png
 active: true
 comment: true
+archive: true
 ---
 
 # Primer najjednostavnijeg skripta

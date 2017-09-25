@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: message.png
 active: true
 comment: true
+archive: true
 ---
 
 # Međuprocesna komunikacija

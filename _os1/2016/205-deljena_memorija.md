@@ -6,6 +6,7 @@ sub_category: Konkurentno programiranje
 image: memory.png
 active: true
 comment: true
+archive: true
 ---
 
 Deljenom memorijom se definiše oblast (segment) memorije koja se mapira i deli između više procesa. Ovo je najbrži oblik IPC zato što nema posrednika. Informacije se mapiraju direktno iz memorijskog segmenta u adresni prostor pozivajućeg procesa. Segment kreira jedan proces, a više procesa mogu da čitaju i pišu iz njega. Jezgro OS održava specijalnu internu strukturu za svaki segment deljene memorije koji postoji u njegovom adresnom prostoru (linux/shm.h)

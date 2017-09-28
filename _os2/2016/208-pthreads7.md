@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: list.png
 active: true
 comment: true
+archive: true
 ---
 
 # Pretraga, dodavanje, brisanje

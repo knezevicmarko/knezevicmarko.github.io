@@ -6,6 +6,7 @@ sub_category: Apache Hadoop
 image: Hadoop.png
 active: true
 comment: true
+archive: true
 ---
 
 # Materijali

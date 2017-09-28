@@ -6,6 +6,7 @@ sub_category: Parametarski posao
 image: emiteri.png
 active: true
 comment: true
+archive: true
 ---
 
 # Emiteri i mrežni uređaji

@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: kriptografija.png
 active: true
 comment: true
+archive: true
 ---
 
 # Dekodiranje fajla

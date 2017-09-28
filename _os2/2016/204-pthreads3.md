@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: bottle.png
 active: true
 comment: true
+archive: true
 ---
 
 # Flaše

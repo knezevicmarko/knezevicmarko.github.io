@@ -6,6 +6,7 @@ sub_category: Apache Hadoop
 image: indexer.png
 active: true
 comment: true
+archive: true
 ---
 
 Neka su dati fajlovi u kojima se nalazi proizvoljni tekst. Potrebno je kreirati **map/reduce** programski model koji za svaku reč u tekstu ispisuje u kojim se fajlovima nalazi. **Main** metod kao argumente prihvata putanje do ulaznih fajlova, izlaznih fajlova i broj reduktora.

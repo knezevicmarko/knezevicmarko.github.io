@@ -6,6 +6,7 @@ sub_category: Apache Hadoop
 image: join.png
 active: true
 comment: true
+archive: true
 ---
 
 Neka su dati fajlovi koji sadže podatke o kupcima u sledećem obliku:

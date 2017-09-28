@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: pi.png
 active: true
 comment: true
+archive: true
 ---
 
 Aproksimacija vrednosti broja $$ \pi $$ primenom Monte Carlo metode.

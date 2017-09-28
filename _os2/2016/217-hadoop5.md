@@ -6,6 +6,7 @@ sub_category: Apache Hadoop
 image: like.png
 active: true
 comment: true
+archive: true
 ---
 
 Neka su date strukture fajlova:

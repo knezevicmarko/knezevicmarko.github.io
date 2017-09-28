@@ -6,6 +6,7 @@ sub_category: Parametarski posao
 image: parameters.png
 active: true
 comment: true
+archive: true
 ---
 
 # Materijali

@@ -6,6 +6,7 @@ sub_category: Parametarski posao
 image: company.png
 active: true
 comment: true
+archive: true
 ---
 
 Na osnovu podataka finansijskog prometa između kompanija (transfer novca među njima) potrebno je izvršiti kategorizaciju kompanija. U 4 tekstualne datoteke **kvartal1.txt, … , kvartal4.txt** se u svakoj liniji nalazi transfer novca. Transfer je dat u formatu:

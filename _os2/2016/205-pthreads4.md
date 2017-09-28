@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: printers.png
 active: true
 comment: true
+archive: true
 ---
 
 Predlog rešenja za zauzimanje resursa (štampača) korišćenjem pthread_mutex_trylock() funkcije.

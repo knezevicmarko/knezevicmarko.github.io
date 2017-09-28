@@ -6,6 +6,7 @@ sub_category: Pthreads
 image: bridge.png
 active: true
 comment: true
+archive: true
 ---
 
 # Most koji ima samo jednu kolovoznu traku

@@ -6,6 +6,7 @@ sub_category: Apache Hadoop
 image: counter.png
 active: true
 comment: true
+archive: true
 ---
 
 Neka su dati fajlovi u kojima se nalazi proizvoljni tekst. Potrebno je kreirati **map/reduce** programski model koji broji koliko se svaka reč pojavljuje u tekstu. **Main** metod kao argumente prihvata putanje do ulaznih i izlaznih fajlova.

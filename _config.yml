@@ -37,6 +37,13 @@ collections:
   bp1:
     title: Baze podataka 1
     output: true
-    image: fa fa-archive
+    image: fa fa-database
     description:
       Struktura podataka. Klasifikacija, elementi fizičke i logičke strukture, čuvanje podataka. Opšta struktura sistema za upravljanje bazama podataka. Modeli baza podataka. Osnovni tehnološko-tehnički koncepti. Baze podataka i metodologija razvoja IS. ER model. Entitetski i referencijalni integritet. Relacioni model. Struktura relacionog modela. Operacije relacionog modela. Relacioni upitni jezik. Razvoj SQL-a, tipovi podataka i naredbe. Pogledi. Ugrađeni SQL. Preslikavanje konceptualne šeme na relacionu šemu. Programiranje u relacionim bazama podataka. Upravljanje transakcijama. Oporavak BP. Normalne forme-projektovanje relacija normalizacijom. Dizajniranje logičke i fizičke strukture baze podataka i podešavanje. Memorisanje podataka i indeksiranje. Uvod u optimizaciju upita. RDBMS. Struktura datoteka. Prostor za tabele i segmenti. Korisnički objekti BP. Tipovi podataka. Memorijska struktura. Struktura procesa. Upravljanje RDBMS-om.
+
+  vp:
+    title: Vizuelno programiranje
+    output: true
+    image: fa fa-desktop
+    description:
+        Radna okolina alata za vizuelno programiranje i njeni sa¬stav¬ni delovi. Pojam događaja i biblioteke komponenti. Osnovne komponente. Osnove programskog jezika - kontrolne strukture i tipovi podataka. Komponente sistema za interakciju sa korisnikom, za pristup podacima i bazama podataka, i za izveštaje. Prozori (forme), njihovo kreiranje, pozivanje i uništavanje. Napredne komponente. Elementi multimedije. .Net Studio C#, Java NET Beans. Praktična nastava. Korišćenje integrisanih razvojnih okruženja za razvoj vizuelnih aplikacija. Samostalno kreiranje aplikacija i elemenata aplikacija sa vizuelnim korisničkim interfejsom.

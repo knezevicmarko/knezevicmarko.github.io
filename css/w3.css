@@ -368,3 +368,18 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
   width : 24px;
   height : 24px;
 }
+
+a img
+{
+  margin-right: 5px;
+}
+
+div.w3-container i
+{
+  margin-top: 5px;
+}
+
+embed:focus
+{
+  outline : none;
+}

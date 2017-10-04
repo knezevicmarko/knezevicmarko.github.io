@@ -23,7 +23,7 @@ layout: default
     <button onclick="toggleAcc('{{ category }}')" class="w3-btn-block w3-left-align w3-light-grey">
       {{ category }}
     </button>
-    <div class="w3-accordion-content w3-padding" id="{{ category }}">
+    <div class="w3-accordion-content w3-padding w3-show" id="{{ category }}">
       <ul class="w3-ul w3-card-4 w3-white">
       {% for pg in site[page.collection] %}
         {% if pg.main_category == category and pg.active and pg.archive != true %}

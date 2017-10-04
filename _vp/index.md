@@ -27,7 +27,7 @@ title: VP
 
 Uslov za izlazak na ispit je sticanje više od polovine bodova za predispitne obaveze.
 
-Seminarski rad mora biti završen do početka prvog ispitnog roka posle odslušanog predmeta – junski ispitni rok.
+Seminarski rad mora biti završen do početka prvog ispitnog roka posle odslušanog predmeta – januarski ispitni rok.
 Usmeni –završni ispit se polaže praktično. Dobija se jedan zadatak koji ima razne elemente pređenog gradiva.
 
 **Kolokvijumi**:

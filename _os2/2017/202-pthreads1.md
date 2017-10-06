@@ -6,7 +6,7 @@ sub_category: Pthreads
 image: thread.png
 active: true
 comment: true
-archive: true
+archive: false
 ---
 
 # Teme kursa

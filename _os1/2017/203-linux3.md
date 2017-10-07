@@ -4,7 +4,7 @@ title: SHELL - alati za shell programiranje
 main_category: Materijali za vežbe
 sub_category: Linux
 image: shell1.png
-active: false
+active: true
 comment: true
 archive: false
 ---
@@ -550,3 +550,34 @@ www.znanje.edu
 {% endhighlight %}
 **Objašnjenje**:
 Navedeni regularni izraz znači da string može, a ne mora (zbog “?”) početi sekvencom “www”+bilo koje cifre nakon čega sledi tačka. Iza tačke mora biti slovo, a zatim sekvenca od najmanje 1, a najviše 7 alfanumerika (slova ili brojeva), dok na kraju mora biti domen “.ac.(dva bilo koja slova)” ili “.edu”.
+
+## Domaći zadaci
+
+### Prvi zadatak
+
+Napisati regularni izraz koji pronalazi decimalne brojeve.
+
+**Primer**
+
+{: .w3-table .w3-margin .w3-card-4}
+|-----|------------------|
+| decimalni broj | 3.14529 |
+| decimalni broj | -255.34 |
+| decimalni broj | 128 |
+| decimalni broj | 1.9e10 |
+| decimalni broj | 123,340.00 |
+| nije decimalni broj | 720p |
+
+### Drugi zadatak
+
+Napisati regularni izraz koji pronalazi brojeve telefona.
+
+**Primer ispravnih brojeva telefona**
+{% highlight bash %}
+415-555-1234
+650-555-2345
+(416)555-3456
+202 555 4567
+4035555678
+1 416 555 9292
+{% endhighlight %}

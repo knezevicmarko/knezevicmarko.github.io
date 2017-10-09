@@ -4,7 +4,7 @@ title: Korisnici i grupe
 main_category: Materijali za vežbe
 sub_category: Linux
 image: users.png
-active: false
+active: true
 comment: true
 archive: false
 ---
@@ -151,54 +151,51 @@ $ sudo useradd -c "Jane Doe" -d /home/unixnewbie -e 2018-04-04 -g users -G autho
 {% endhighlight %}
 Nakon ove komande treba postaviti password za ovog korisnika komandom:
 {% highlight bash %}
-$ passwd unixnewbie
+$ sudo passwd unixnewbie
 {% endhighlight %}
 
 ### adduser
 
 {% highlight bash %}
-$ adduser
+$ sudo adduser unixnewbie
 {% endhighlight %}
 {% highlight bash %}
-Enter a username to add: jsmith
-Adding user jsmith...
-Adding new group jsmith (1051).
-Adding new user jsmith (1051) with group jsmith.
-Creating home directory /home/jsmith.
-Copying files from /etc/skel
-Enter new UNIX password:
-Retype new UNIX password:
-passwd: password updated successfully
-Changing the user information for jsmith
-Enter the new value, or press return for the default
-Full Name []: John Smith
-Room Number []: 409
-Work Phone []:
-Home Phone []:
-Other []:
-Is the information correct? [y/n] y
+Adding user `unixnewbie` ...
+Adding new group `unixnewbie` (1002) ...
+Adding new user `unixnewbie` (1002) with group `unixnewbie` ...
+Creating home directory `/home/unixnewbie` ...
+Copying files from `/etc/skel` ...
+Changing the user information for unixnewbie
+Enter the new value, or press ENTER for the default
+    Full Name []:
+    Room Number []:
+    Work Phone []:
+    Home Phone []:
+    Other []:
+Is the information correct? [Y/n] Y
 {% endhighlight %}
 
 ### usermod
 
 Komanda za menjanje korisničkog naloga. Ima iste opcije kao i useradd sa dodatnom opcijom -l koja daje mogućnost promene imena korisničkog naloga. Posle ove opcije navodi se novo ime pa ime koje se menja. Treba voditi računa o tome da li sistem vrši autentifikaciju prema imenu ili prema UID numeričkoj vrednosti. Evo primera:
 {% highlight bash %}
-$ usermod -d /home/saraht -m -l saraht storvald
+$ sudo usermod -d /home/saraht -m -l saraht storvald
 {% endhighlight %}
 
-userdel
+### userdel
+
 Brisnje naloga tj. korisnika. Ima jednu opciju -r koja nam daje mogućnost da se izbriše i home direktorijum ovog korisnika.
 {% highlight bash %}
-$ userdel -r saraht
+$ sudo userdel -r saraht
 {% endhighlight %}
 
 # Administracija grupa
 
 Komande za rad sa grupama su **groupadd**, **groupmod** i **groupdel** i iste su na skoro svim distribucijama. Primer:
 
-* **groupadd -g ID grupa Imegrupe**
-* **groupmod -n Promenjenoimegrupe Novoimegrupe** - pored opcije -n može se koristi i opcija -g kada se umesto imena navodi ID grupe.
-* **groupdel Imegrupe** - ovde se uklanja samo grupa ali ne i fajlovi koji su povezani sa tom grupom.
+* **groupadd -g ID grupa ImeGrupe**
+* **groupmod -n PromenjenoImeGrupe NovoImeGrupe** - pored opcije -n može se koristi i opcija -g kada se umesto imena navodi ID grupe.
+* **groupdel ImeGrupe** - ovde se uklanja samo grupa ali ne i fajlovi koji su povezani sa tom grupom.
 
 # Identifikacija korisnika
 
@@ -217,25 +214,6 @@ jsmith 		pts/1 Mar 24 19:50 	(lab409.internal.vets.edu.rs)
 $ who -q
 root 		jsmith
 # users=2
-{% endhighlight %}
-
-### finger
-
-Komanda finger daje sličan rezultat - prikazuje korisnike prijavljene na sistem, a pomoću nje se mogu dobiti i detaljne informacije o korisnicima iz /etc/passwd datoteke, **bez obzira da li su oni trenutno prijavljeni na sistem ili ne**. Dodatno se mogu dobiti i **informacije o korisnicima udaljenih sistema** (npr: finger coyote@acme.com), ali se takvi pokušaji najčešće završe porukom "connection refused".
-{% highlight bash %}
-$ finger
-Login 	Name 		Tty 	Idle 	Login	Time
-jsmith John Smith 	pts/1 1 	Mar 25 15:48 	(nicotine)
-root 	root *	pts/0 	Mar 25 15:47 	(nicotine)
-{% endhighlight %}
-{% highlight bash %}
-$ finger jsmith
-Login: jsmith 				Name: John Smith Jr.
-Directory: /home/jsmith 		Shell: /bin/bash
-Office: 425, 39xx450 			Home Phone: 44xx012
-Last login Wed Mar 24 17:28 (CET) on pts/1 from nicotine
-No mail.
-No Plan.
 {% endhighlight %}
 
 ## Privremeno prijavljivanje na sistem pod drugim imenom
@@ -291,7 +269,7 @@ $ whoami
 jsmith pts/1 Mar 25 16:09 (nicotine.internal.vets.edu.rs)
 {% endhighlight %}
 {% highlight bash %}
-$ su -
+$ sudo su -
 Password:
 {% endhighlight %}
 {% highlight bash %}

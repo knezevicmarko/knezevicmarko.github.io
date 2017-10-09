@@ -6,7 +6,7 @@ sub_category: Linux
 image: users.png
 active: false
 comment: true
-archive: true
+archive: false
 ---
 
 Svakom korisniku Linux sistema dodeljen je **jedinstven celobrojni identifikator – UID** (user ID) na osnovu kog kernel identifikuje korisnike. Ovaj metod predstavljanja kernelu karakterističan je za većinu operativnih sistema, uzevši u obzir da procesor brže radi sa brojnim vrednostima. Posebna baza podataka, koja radi u korisničkom režimu rada, dodeljuje tekstualna imena ovim numeričkim vrednostima, odnosno uparuje UID sa konkretnim korisničkim imenom. Dodatno, u bazi se nalaze i informacije o korisniku, kao što su opis, lokacija ličnog direktorijuma (home) i podrazumevani komandni interpreter (shell).
@@ -86,10 +86,12 @@ Podaci o svakom nalogu imaju devet mogućih mesta za podatke.
 ![Izgled linije fajla /etc/shadow.](/assets/os1/shadow.png "Izgled linije fajla /etc/shadow.")
 
 
-* **Login ID** predstavlja naziv korisničkog naloga.
+* **Username** predstavlja naziv korisničkog naloga.
 * **Encrypted Password** je niz karaktera koji predstavlja kriptovan password. Ovo polje može sadržati 13 ili više karaktera, a ako je ovo polje prazno korisnik se na ovaj nalog može prijaviti bez lozinke.
 * **Last Changed** polje predstavlja koliko je dana prošlo od poslednje promene lozinke.
-* **Warning** je broj dana posle kojih će nalog biti blokiran. Uglavnom će korisnik naloga biti obavešten o datumu isteka njegovog naloga tako da se može obratiti administratoru za produženje naloga. Polja od šestog do devetog su prazna u skoro svim distribucijama Unix sistema.
+* **Minimum** polje predstavlja broj dana koliko korisnik mora da sačeka pre nego što ponovo može da promeni lozinku.
+* **Maximum** je broj dana posle kojih korisnik mora da promeni lozinku.
+* **Warning** je broj dana do isteka lozinke kada će korisnik biti opomenut da promeni lozinku. Uglavnom će korisnik naloga biti obavešten o datumu isteka njegovog naloga tako da se može obratiti administratoru za produženje naloga. Polja od šestog do devetog su prazna u skoro svim distribucijama Unix sistema.
 
 ### /etc/group
 
@@ -127,7 +129,7 @@ Komande za kreiranje, menjanje i brisanje naloga i grupa je uglavnom standardizo
 * Promena **/etc/group** fajla pomoću vigr editora.
 * I na kraju sledi kreiranje direktorijuma željenog naloga u **/home direktorijumu**.
 
-Naravno ovi koraci se mogu izbeći koristeći sledeću komandu, podrazumevajući da ste registrovani kao administrator tj. root.
+Naravno ovi koraci se mogu izbeći koristeći `useradd` alat, podrazumevajući da ste registrovani kao administrator tj. root.
 
 ### useradd
 
@@ -143,9 +145,9 @@ Naravno ovi koraci se mogu izbeći koristeći sledeću komandu, podrazumevajući
 	- -s ime shella koji će korisnik koristiti
 	- -u ID korisnika  ime naloga
 
-**Primer.** Kreiranje naloga pod imenom **unixnewbie**, čije pravo ime je Jane Doe. Jane je potreban nalog do 4. Aprila 2010. Njena primarna grupa je **users**, a sekundarna authors. Ime shell-a koji koristi je Bourne Again shell (bash). Ako ako se ne prijavi na nalog u periodu od 60 dana, nalog će biti blokiran.
+**Primer.** Kreiranje naloga pod imenom **unixnewbie**, čije pravo ime je Jane Doe. Jane je potreban nalog do 4. Aprila 2018. Njena primarna grupa je **users**, a sekundarna authors. Ime shell-a koji koristi je Bourne Again shell (bash). Ako ako se ne prijavi na nalog u periodu od 60 dana, nalog će biti blokiran.
 {% highlight bash %}
-$ useradd -c “Jane Doe” -d /home/unixnewbie -e 040410 -f 60 -g users -G authors -m -s /bin/bash -u 1000 unixnewbie
+$ sudo useradd -c "Jane Doe" -d /home/unixnewbie -e 2018-04-04 -g users -G authors -m -s /bin/bash -u 1003 unixnewbie
 {% endhighlight %}
 Nakon ove komande treba postaviti password za ovog korisnika komandom:
 {% highlight bash %}

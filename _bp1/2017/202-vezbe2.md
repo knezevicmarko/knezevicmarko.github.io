@@ -3,7 +3,7 @@ layout: lekcija
 title: Uvodni primeri
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
-image: pi.png
+image: sigma.png
 active: true
 comment: true
 archive: false

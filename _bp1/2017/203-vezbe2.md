@@ -3,7 +3,7 @@ layout: lekcija
 title: Zadatak 2.2
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
-image: pi.png
+image: pi1.png
 active: true
 comment: true
 archive: false

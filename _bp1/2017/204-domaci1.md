@@ -3,7 +3,7 @@ layout: lekcija
 title: Domaći 1
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
-image: pi.png
+image: pi2.png
 active: true
 comment: true
 archive: false

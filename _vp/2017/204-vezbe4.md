@@ -2,7 +2,7 @@
 layout: lekcija
 title:  Indekseri, nabrojivi tipovi, delegati, događaji
 main_category: Materijali za vežbe
-sub_category: Uvod u C#
+sub_category: C#
 image: Math-operators.png
 active: true
 comment: true

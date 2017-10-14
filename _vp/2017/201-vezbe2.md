@@ -2,7 +2,7 @@
 layout: lekcija
 title: Višelinijski stringovi, svojstva, parcijalne klase...
 main_category: Materijali za vežbe
-sub_category: Uvod u C#
+sub_category: C#
 image: Programming-Cs-icon.png
 active: true
 comment: true

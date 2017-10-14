@@ -8,6 +8,7 @@ active: true
 comment: true
 archive: false
 ---
+* Projekat sa rešenjem možete skinuti [ovde](/assets/vp/GenerickaLista.zip).
 ---
 <embed src="/assets/vp/6_genericka_lista.pdf" width="768" height="768">
 ---

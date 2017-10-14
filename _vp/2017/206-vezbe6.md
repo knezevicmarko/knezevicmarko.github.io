@@ -9,7 +9,7 @@ comment: true
 archive: false
 ---
 ---
-<embed src="/assets/vp/6_generička_lista.pdf" width="768" height="768">
+<embed src="/assets/vp/6_genericka_lista.pdf" width="768" height="768">
 ---
 
-* Ukoliko se ne prikaze prezentacija kliknite [ovde](/assets/vp/6_generička_lista.pdf).
+* Ukoliko se ne prikaze prezentacija kliknite [ovde](/assets/vp/6_genercčka_lista.pdf).

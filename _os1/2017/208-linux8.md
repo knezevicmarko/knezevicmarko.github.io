@@ -4,7 +4,7 @@ title: Linkovi
 main_category: Materijali za vežbe
 sub_category: Linux
 image: link.png
-active: false
+active: true
 comment: true
 archive: false
 ---

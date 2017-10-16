@@ -4,7 +4,7 @@ title: Blok uređaji i administracija fajl sistema
 main_category: Materijali za vežbe
 sub_category: Linux
 image: HDD-icon.png
-active: false
+active: true
 comment: true
 archive: false
 ---

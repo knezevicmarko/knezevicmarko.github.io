@@ -1,10 +1,10 @@
 ---
 layout: lekcija
-title: Kolokvijum IV
+title: Osnovni upiti
 main_category: Materijali za vežbe
-sub_category: Relaciona algebra
-image: join_left.png
-active: false
+sub_category: SQL Upiti
+image: sql1.png
+active: true
 comment: true
 archive: false
 ---
@@ -61,7 +61,7 @@ FROM table_name;
 * Selektovati različita mesta iz tabele Studenti, i dopisati kolonu sa NULL vrednostima
 
 {% highlight sql %}
-select distinct mesto
+select distinct mesto, NULL
 from studenti
 {% endhighlight %}
 
@@ -256,7 +256,7 @@ where DATEDIFF(year, datr, GETDATE()) > 25
 ### AGREGATNE FUNKCIJE
 
 {% highlight sql %}
-COUNT , MIN, MAX, SUM, AVG
+COUNT, MIN, MAX, SUM, AVG
 {% endhighlight %}
 
 * Prikazati broj studenata koji su upisani na PMF-u

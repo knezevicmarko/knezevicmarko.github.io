@@ -2,7 +2,7 @@
 layout: lekcija
 title:  Overloading operatora
 main_category: Materijali za vežbe
-sub_category: Uvod u C#
+sub_category: C#
 image: Math-operators.png
 active: true
 comment: true

@@ -233,7 +233,221 @@ int main(int argc, char **argv)
 
 Rešiti problem filozofa automatizacijom. Filozofi ne pristupaju štapićima istovremeno i uzimaju oba ili nijedan štapić.
 
+#### Predlog rešenja
+{% highlight c %}
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <time.h>
+
+#define BROJ_FILOZOFA 5
+
+pthread_mutex_t mutexi;
+/******************************
+fniz cuva broj dostupnih stapica
+za svakog filozofa. Vrednosti mogu
+biti 0, 1 i 2.
+*******************************/
+int fniz[BROJ_FILOZOFA];
+
+int getLeviIndex(int index)
+{
+    return (index - 1) % BROJ_FILOZOFA;
+}
+
+int getDesniIndex(int index)
+{
+    return (index + 1) % BROJ_FILOZOFA;
+}
+
+void *doWork(void *t)
+{
+    long i = (long) t;
+    int index;
+
+    while (1)
+    {
+        printf("Filozof %ld misli.\n", i);
+        sleep(2); //mislim
+        while (1)
+        {
+            pthread_mutex_lock(&mutexi);
+
+            if (fniz[i] == 2)
+            {
+                fniz[getLeviIndex(i)]--;
+                fniz[getDesniIndex(i)]--;
+
+                pthread_mutex_unlock(&mutexi);
+
+                printf("Filozof %ld jede.\n", i);
+                sleep(1); // jedem
+
+                pthread_mutex_lock(&mutexi);
+                fniz[getLeviIndex(i)]++;
+                fniz[getDesniIndex(i)]++;
+                pthread_mutex_unlock(&mutexi);
+                break;
+            }
+            else
+            {
+                pthread_mutex_unlock(&mutexi);
+                sleep(rand() % 5);
+            }
+        }
+    }
+
+    pthread_exit(NULL);
+}
+
+int main(int argc, char **argv)
+{
+    long i;
+    pthread_t niti[BROJ_FILOZOFA];
+    pthread_attr_t attr;
+    srand(time(NULL));
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        fniz[i] = 2;
+
+    pthread_mutex_init(&mutexi, NULL);
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_create(&niti[i], &attr, doWork, (void *)i);
+
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_join(niti[i], NULL);
+
+
+    pthread_attr_destroy(&attr);
+    pthread_mutex_destroy(&mutexi);
+
+    pthread_exit(NULL);
+
+    return 0;
+}
+{% endhighlight %}
+
 Proširiti problem tako da se prati promena stanja filozofa. Stanja mogu biti: jede, misli i gladan.
+
+#### Predlog rešenja
+{% highlight c %}
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <time.h>
+
+#define BROJ_FILOZOFA 5
+
+#define MISLIM 0
+#define JEDEM 1
+#define GLADAN 2
+
+pthread_mutex_t mutexi;
+/***********************************
+fniz cuva stanje za svakog filozofa.
+************************************/
+int fniz[BROJ_FILOZOFA];
+pthread_cond_t conds[BROJ_FILOZOFA];
+
+int getLeviIndex(int index)
+{
+    return (index - 1) % BROJ_FILOZOFA;
+}
+
+int getDesniIndex(int index)
+{
+    return (index + 1) % BROJ_FILOZOFA;
+}
+
+void *doWork(void *t)
+{
+    long i = (long) t;
+    int index;
+
+    while (1)
+    {
+        pthread_mutex_lock(&mutexi);
+        fniz[i] = MISLIM;
+        pthread_mutex_unlock(&mutexi);
+        printf("Filozof %ld misli.\n", i);
+        sleep(2); //mislim
+
+        pthread_mutex_lock(&mutexi);
+        fniz[i] = GLADAN;
+        // gladan sam
+        pthread_mutex_unlock(&mutexi);
+        printf("Filozof %ld je gladan.\n", i);
+
+        pthread_mutex_lock(&mutexi);
+        // ako je filozof i gladan i susedi ne jedu -> on moze da jede
+        while (fniz[getLeviIndex(i)] == JEDEM || fniz[getDesniIndex(i)] == JEDEM)
+            pthread_cond_wait(&conds[i], &mutexi);
+
+        fniz[i] = JEDEM;
+        pthread_mutex_unlock(&mutexi);
+        printf("Filozof %ld jede.\n", i);
+        sleep(1); //jede
+
+        pthread_mutex_lock(&mutexi);
+
+        index = getDesniIndex(i);
+        // ako su ispunjeni uslovi obavestava desnog da moze da jede
+        if (fniz[index] == GLADAN && fniz[getDesniIndex(index)] != JEDEM)
+            pthread_cond_signal(&conds[index]);
+
+        index = getLeviIndex(i);
+        // ako su ispunjeni uslovi obavestava levog da moze da jede
+        if (fniz[index] == GLADAN && fniz[getLeviIndex(index)] != JEDEM)
+            pthread_cond_signal(&conds[index]);
+
+        pthread_mutex_unlock(&mutexi);  
+    }
+
+    pthread_exit(NULL);
+}
+
+int main(int argc, char **argv)
+{
+    long i;
+    pthread_t niti[BROJ_FILOZOFA];
+    pthread_attr_t attr;
+    srand(time(NULL));
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        fniz[i] = 2;
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_cond_init(&conds[i], NULL);
+
+    pthread_mutex_init(&mutexi, NULL);
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_create(&niti[i], &attr, doWork, (void *)i);
+
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_join(niti[i], NULL);
+
+
+    pthread_attr_destroy(&attr);
+    pthread_mutex_destroy(&mutexi);
+
+    for (i = 0; i < BROJ_FILOZOFA; i++)
+        pthread_cond_destroy(&conds[i]);
+
+    pthread_exit(NULL);
+
+    return 0;
+}
+{% endhighlight %}
 
 ### Domaći 2.
 

@@ -47,3 +47,9 @@ collections:
     image: fa fa-desktop
     description:
         Radna okolina alata za vizuelno programiranje i njeni sa¬stav¬ni delovi. Pojam događaja i biblioteke komponenti. Osnovne komponente. Osnove programskog jezika - kontrolne strukture i tipovi podataka. Komponente sistema za interakciju sa korisnikom, za pristup podacima i bazama podataka, i za izveštaje. Prozori (forme), njihovo kreiranje, pozivanje i uništavanje. Napredne komponente. Elementi multimedije. .Net Studio C#, Java NET Beans. Praktična nastava. Korišćenje integrisanih razvojnih okruženja za razvoj vizuelnih aplikacija. Samostalno kreiranje aplikacija i elemenata aplikacija sa vizuelnim korisničkim interfejsom.
+  op:
+    title: Osnovi programiranja
+    output: true
+    image: fa fa-desktop
+    description:
+       Elementi programskog jezika C. Ulazno izlazne naredbe. Naredbe grananja. Naredbe ponavljanja. Funkcije i procedure. Složeni tipovi podataka. Nizovi. Strukture. Datoteke.

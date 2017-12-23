@@ -1,8 +1,8 @@
 ---
 layout: lekcija
-title: Osnovi programiranja
+title: I termin
 main_category: Materijali za vežbe
-sub_category: I termin
+sub_category: Osnovi programiranja
 image: pi.png
 active: true
 comment: true

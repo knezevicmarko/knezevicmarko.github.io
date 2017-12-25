@@ -4,7 +4,7 @@ title: Semafori
 main_category: Materijali za vežbe
 sub_category: Konkurentno programiranje
 image: semaphore1.png
-active: false
+active: true
 comment: true
 archive: false
 ---

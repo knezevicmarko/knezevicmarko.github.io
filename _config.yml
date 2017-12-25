@@ -50,6 +50,6 @@ collections:
   op:
     title: Osnovi programiranja
     output: true
-    image: fa fa-desktop
+    image: fa fa-file-code-o
     description:
        Elementi programskog jezika C. Ulazno izlazne naredbe. Naredbe grananja. Naredbe ponavljanja. Funkcije i procedure. Složeni tipovi podataka. Nizovi. Strukture. Datoteke.

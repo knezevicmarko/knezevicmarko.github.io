@@ -3,7 +3,7 @@ layout: lekcija
 title: III termin
 main_category: Materijali za vežbe
 sub_category: Osnovi programiranja
-image: pi.png
+image: number3.png
 active: true
 comment: true
 archive: false

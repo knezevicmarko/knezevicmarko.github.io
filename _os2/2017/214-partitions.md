@@ -136,7 +136,7 @@ Predlog rešenja
 def processNewLogs(fileName, sc, userData):
   events = sc.textFile(fileName).map(lambda x: (x.split(" ")[0], x.split(" ")[1:]))
   joined = userData.join(events)
-  offTopic = joined.filter(lambda (userId, (userInfo, linkInfo)): linkInfo[0] not in userInfo).count()
+  offTopic = joined.filter(lambda (userId, (userInfo, linkInfo)): linkInfo not in userInfo).count()
   return offTopic
 
 userData = sc.textFile("korisnici.txt").map(lambda x: (x[0], x[1:])).persist()

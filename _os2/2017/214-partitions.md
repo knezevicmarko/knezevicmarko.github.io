@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: Apache Spark partitions
+title: Partitions
 main_category: Materijali za vežbe
 sub_category: Apache Spark
 image: a.png

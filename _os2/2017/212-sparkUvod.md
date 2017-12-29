@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: Apache Spark Uvod
+title: Uvod
 main_category: Materijali za vežbe
 sub_category: Apache Spark
 image: s.png

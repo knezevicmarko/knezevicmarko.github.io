@@ -1,6 +1,6 @@
 ---
 layout: lekcija
-title: Apache Spark pair RDDs
+title: pair RDDs
 main_category: Materijali za vežbe
 sub_category: Apache Spark
 image: p.png

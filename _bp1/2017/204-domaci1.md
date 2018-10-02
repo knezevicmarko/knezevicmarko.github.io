@@ -6,7 +6,7 @@ sub_category: Relaciona algebra
 image: pi2.png
 active: false
 comment: true
-archive: false
+archive: true
 ---
 ---
 <embed src="/assets/bp1/bp1_domaci1.pdf" width="768" height="768">

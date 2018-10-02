@@ -6,7 +6,7 @@ sub_category: Relaciona algebra
 image: pi1.png
 active: false
 comment: true
-archive: false
+archive: true
 ---
 ---
 <embed src="/assets/bp1/bp1_vezbe2_zadatak_2.2_magnovenje.pdf" width="768" height="768">

@@ -4,7 +4,7 @@ title: Prirodno spajanje
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
 image: join_left.png
-active: true
+active: false
 comment: true
 archive: false
 ---

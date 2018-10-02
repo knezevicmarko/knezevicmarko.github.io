@@ -4,7 +4,7 @@ title: Zadatak 2.2
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
 image: pi1.png
-active: true
+active: false
 comment: true
 archive: false
 ---

@@ -4,7 +4,7 @@ title: Domaći 1
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
 image: pi2.png
-active: true
+active: false
 comment: true
 archive: false
 ---

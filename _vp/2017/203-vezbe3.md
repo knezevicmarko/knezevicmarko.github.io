@@ -4,9 +4,9 @@ title:  Overloading operatora
 main_category: Materijali za vežbe
 sub_category: C#
 image: Math-operators.png
-active: true
+active: false
 comment: true
-archive: false
+archive: true
 ---
 ---
 <embed src="/assets/vp/3_overloading_operatora.pdf" width="768" height="768">

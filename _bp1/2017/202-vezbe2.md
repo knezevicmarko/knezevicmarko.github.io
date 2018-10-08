@@ -4,9 +4,9 @@ title: Uvodni primeri
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
 image: sigma.png
-active: false
+active: true
 comment: true
-archive: true
+archive: false
 ---
 ---
 <embed src="/assets/bp1/bp1_vezbe2_prvi_deo.pdf" width="768" height="768">

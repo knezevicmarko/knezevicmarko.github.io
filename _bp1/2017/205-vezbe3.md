@@ -4,9 +4,9 @@ title: Prirodno spajanje
 main_category: Materijali za vežbe
 sub_category: Relaciona algebra
 image: join_left.png
-active: false
+active: true
 comment: true
-archive: true
+archive: false
 ---
 ---
 <embed src="/assets/bp1/bp1_vezbe_3.pdf" width="768" height="768">

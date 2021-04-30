@@ -591,7 +591,7 @@ do
 	commands;
 done
 {% endhighlight %}
-Promenljiva name dobija vrednost tekućeg člana liste **word**. Ako se “**in words**” izostavi u naredbi select, ili ako se specificira 'in "$@"', tada će name uzimati vrednost pozicionih parametara. **Izlazni status for petlje jednak je izlaznom statusu zadnje izvršene komande u grupi commands**. Ako je lista words prazna nijedna komanda se neće izvršiti i tada će izlazni status biti 0.
+Promenljiva name dobija vrednost tekućeg člana liste **words**. Ako se “**in words**” izostavi u naredbi select, ili ako se specificira 'in "$@"', tada će name uzimati vrednost pozicionih parametara. **Izlazni status for petlje jednak je izlaznom statusu zadnje izvršene komande u grupi commands**. Ako je lista words prazna nijedna komanda se neće izvršiti i tada će izlazni status biti 0.
 {% highlight bash %}
 #
 # ss11.sh: upotreba for petlje

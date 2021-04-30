@@ -345,7 +345,7 @@ Rad sa promenljivama je koristan, ali mora se proširiti odgovarajućom kontrolo
 
 U opštem slučaju, if-then konstrukcija izgleda ovako:
 {% highlight bash %}
-if [uslov]
+if [ uslov ]
 then
 	naredbe
 fi
@@ -402,16 +402,16 @@ then
 	fi
 fi
 {% endhighlight %}
-Ili isto to, ali jednostavnije, korišćenjem logičkih operatora:
+Ili isto to, ali jednostavnije, korišćenjem logičkih operatora i ključne reči **[[** koja nam to omogućava:
 {% highlight bash %}
-if [ condition1 && condition2 ]
+if [[ condition1 && condition2 ]]
 then
 	some action
 fi
 {% endhighlight %}
 Isto kao u C-u, postoji i logički operator  “\|\|”:
 {% highlight bash %}
-if [ condition1 || condition2 ]
+if [[ condition1 || condition2 ]]
 then
 	some action
 fi

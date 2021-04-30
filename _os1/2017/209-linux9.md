@@ -576,8 +576,8 @@ echo 'Guess the secret color: red, blue, yellow, purple, or orange \n'
 read COLOR
 until [ $COLOR = 'purple' ]
 do
-echo 'Incorrect. Guess again. \n'
-read COLOR
+	echo 'Incorrect. Guess again. \n'
+	read COLOR
 done
 echo 'Correct.'
 {% endhighlight %}
@@ -608,7 +608,10 @@ for i in 1 2 3 4 5 6 7 8 9 10
 do
 	echo "$n * $i = `expr $i \* $n`"
 done
+{% endhighlight %}
+
 Sledeći primer ilustruje upotrebu alternativne for petlje:
+{% highlight bash %}
 for i in `seq 1 10`
 do
 	echo $i

@@ -242,7 +242,7 @@ $ ls -l myfile
 
 ## Postavljanje user ID, postavljanje group ID, sticky bit
 
-Pored osnovnih dozvola, postoje i tri bita informacija definisanih ya fajlove na UNIX sistemima:
+Pored osnovnih dozvola, postoje i tri bita informacija definisanih za fajlove na UNIX sistemima:
 
 * **SUID ili setuid: promena korisničkog ID pri izvršenju**. Može da se postavi samo na fajlove. Ako je SUID postavljen, kada korisnik izvršava fajl, proces će imati ista prava kao vlasnik fajla koji se izvršava. Tekstualna reprezentacija s.
 * **SGID ili setgid: promena grupnog ID pri izvršenju**. Za fajlove isto kao i kod SUID, ali se nasleđuju prava grupe kojoj vlasnik fajla pripada. Za direktorijume može da znači da će novo kreirani fajl u tom direktorijumu naslediti grupu kojoj direktorijum pripada, a ne grupu kojoj pripada korisnik koji je kreirao fajl. Tekstualna reprezentacija s.

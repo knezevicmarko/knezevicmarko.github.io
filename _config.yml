@@ -54,4 +54,4 @@ collections:
     description:
        Elementi programskog jezika C. Ulazno izlazne naredbe. Naredbe grananja. Naredbe ponavljanja. Funkcije i procedure. Složeni tipovi podataka. Nizovi. Strukture. Datoteke.
 
-theme: jekyll-theme-hacker
+theme: jekyll-theme-minimal

@@ -11,7 +11,7 @@ email: imi.knezevic@gmail.com
 description: >
   Sajt koji sadrži lekcije raznih kurseva.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://todorovicsrdjan.github.io/knezevicmarko.github.io/" # the base hostname & protocol for your site
+url: "http://todorovicsrdjan.github.io/knezevicmarko.github.io" # the base hostname & protocol for your site
 
 # Build settings
 sass:
@@ -53,5 +53,3 @@ collections:
     image: fa fa-file-code-o
     description:
        Elementi programskog jezika C. Ulazno izlazne naredbe. Naredbe grananja. Naredbe ponavljanja. Funkcije i procedure. Složeni tipovi podataka. Nizovi. Strukture. Datoteke.
-
-theme: jekyll-theme-minimal

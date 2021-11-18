@@ -28,7 +28,7 @@ layout: default
       {% for pg in site[page.collection] %}
         {% if pg.main_category == category and pg.active and pg.archive != true %}
           <li class="w3-padding-16">
-            <a href="{{ pg.url }}">
+            <a href="{{ site.baseurl }}{{ pg.url }}">
             {% if pg.image %}
               <img src="{{ site.baseurl }}/assets/img/{{ pg.image }}" class="w3-left" style="width: 60px;">
             {% else %}

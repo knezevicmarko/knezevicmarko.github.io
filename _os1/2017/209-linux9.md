@@ -345,7 +345,7 @@ Rad sa promenljivama je koristan, ali mora se proširiti odgovarajućom kontrolo
 
 U opštem slučaju, if-then konstrukcija izgleda ovako:
 {% highlight bash %}
-if [uslov]
+if [ uslov ]
 then
 	naredbe
 fi
@@ -402,16 +402,16 @@ then
 	fi
 fi
 {% endhighlight %}
-Ili isto to, ali jednostavnije, korišćenjem logičkih operatora:
+Ili isto to, ali jednostavnije, korišćenjem logičkih operatora i ključne reči **[[** koja nam to omogućava:
 {% highlight bash %}
-if [ condition1 && condition2 ]
+if [[ condition1 && condition2 ]]
 then
 	some action
 fi
 {% endhighlight %}
 Isto kao u C-u, postoji i logički operator  “\|\|”:
 {% highlight bash %}
-if [ condition1 || condition2 ]
+if [[ condition1 || condition2 ]]
 then
 	some action
 fi
@@ -576,8 +576,8 @@ echo 'Guess the secret color: red, blue, yellow, purple, or orange \n'
 read COLOR
 until [ $COLOR = 'purple' ]
 do
-echo 'Incorrect. Guess again. \n'
-read COLOR
+	echo 'Incorrect. Guess again. \n'
+	read COLOR
 done
 echo 'Correct.'
 {% endhighlight %}
@@ -591,7 +591,7 @@ do
 	commands;
 done
 {% endhighlight %}
-Promenljiva name dobija vrednost tekućeg člana liste **word**. Ako se “**in words**” izostavi u naredbi select, ili ako se specificira 'in "$@"', tada će name uzimati vrednost pozicionih parametara. **Izlazni status for petlje jednak je izlaznom statusu zadnje izvršene komande u grupi commands**. Ako je lista words prazna nijedna komanda se neće izvršiti i tada će izlazni status biti 0.
+Promenljiva name dobija vrednost tekućeg člana liste **words**. Ako se “**in words**” izostavi u naredbi select, ili ako se specificira 'in "$@"', tada će name uzimati vrednost pozicionih parametara. **Izlazni status for petlje jednak je izlaznom statusu zadnje izvršene komande u grupi commands**. Ako je lista words prazna nijedna komanda se neće izvršiti i tada će izlazni status biti 0.
 {% highlight bash %}
 #
 # ss11.sh: upotreba for petlje
@@ -608,7 +608,10 @@ for i in 1 2 3 4 5 6 7 8 9 10
 do
 	echo "$n * $i = `expr $i \* $n`"
 done
+{% endhighlight %}
+
 Sledeći primer ilustruje upotrebu alternativne for petlje:
+{% highlight bash %}
 for i in `seq 1 10`
 do
 	echo $i

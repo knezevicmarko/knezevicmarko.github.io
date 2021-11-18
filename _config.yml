@@ -7,16 +7,16 @@
 
 # Site settings
 title: IMI materijali
-email: imi.knezevic@gmail.com
+email: tsrdjan@pm.me
 description: >
   Sajt koji sadrži lekcije raznih kurseva.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://knezevicmarko.github.io" # the base hostname & protocol for your site
+baseurl: "/knezevicmarko.github.io" # the subpath of your site, e.g. /blog
+url: "https://todorovicsrdjan.github.io" # the base hostname & protocol for your site
 
 # Build settings
 sass:
   sass_dir: _sass
-indlude: ['_pages']
+include: ['_pages']
 highlighter: rouge
 markdown: kramdown
 excerpt_separator: ""

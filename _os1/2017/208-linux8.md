@@ -64,4 +64,4 @@ lrwxrwxrwx 1 root root 15 Sep 5 14:40 junk -> unexist
 * Pristupna prava kopije se dobijaju se logičkim množenjem bitova pristupnih prava originala i vrednosti promenljive **umask**. Na primer: ako su pristupna prava originalne datoteke 666, a vrednost promenljive umask 002, pristupna prava kopije biće 664, tj, za  other permisije menja se pravo na sledeći način
 6<sub>8</sub> and not (2<sub>8</sub>) = (0110)<sub>2</sub> and not (0010)<sub>2</sub> = (0100)<sub>2</sub> = 4<sub>8</sub>
 * maska se takođe može setovati komandom **umask maska**
-* Sva tri vremena kopije (vreme kreiranja, poslednjeg pristupa i poslednje modifikacije) jednaka su vremenu pokretanja komande **cp**. Vreme poslednjeg pristupa originalne datoteke se takoće menja i jednako je vremenu pokretanja komande cp.
+* Sva tri vremena kopije (vreme kreiranja, poslednjeg pristupa i poslednje modifikacije) jednaka su vremenu pokretanja komande **cp**. Vreme poslednjeg pristupa originalne datoteke se takođe menja i jednako je vremenu pokretanja komande cp.

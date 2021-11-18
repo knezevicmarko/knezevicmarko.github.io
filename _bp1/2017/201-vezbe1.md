@@ -9,7 +9,7 @@ comment: true
 archive: false
 ---
 ---
-<embed src="/assets/bp1/bp1_vezbe1.pdf" width="768" height="768">
+<embed src="{{ site.baseurl }}/assets/bp1/bp1_vezbe1.pdf" width="768" height="768">
 ---
 
-* Ukoliko se ne prikaze prezentacija kliknite [ovde](/assets/bp1/bp1_vezbe1.pdf).
+* Ukoliko se ne prikaze prezentacija kliknite [ovde]({{ site.baseurl }}/assets/bp1/bp1_vezbe1.pdf).

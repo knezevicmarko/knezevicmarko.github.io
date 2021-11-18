@@ -16,7 +16,7 @@ url: "https://todorovicsrdjan.github.io" # the base hostname & protocol for your
 # Build settings
 sass:
   sass_dir: _sass
-indlude: ['_pages']
+include: ['_pages']
 highlighter: rouge
 markdown: kramdown
 excerpt_separator: ""
